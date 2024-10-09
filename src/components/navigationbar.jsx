@@ -50,7 +50,6 @@ export default function NavigationBar(){
                   </div>
                 </div>
               </div>
-              
             </div>
           </div>
 
