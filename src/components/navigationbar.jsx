@@ -13,7 +13,7 @@ export default function NavigationBar(){
 
     return(
       <>
-        <nav class="bg-white-800 border-b">
+        <nav class="bg-white-800 border-b h-20">
           <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div class="relative flex h-16 items-center justify-between">
               <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
@@ -33,8 +33,8 @@ export default function NavigationBar(){
               </div>
 
               <div class="flex flex-1 items-center justify-center md:items-end md:justify-center md:align-center">
-                <div class="flex flex-shrink-0 items-center">
-                  <Image alt="DGU Logo" src={logo} width={"120"} height={"10"}/>
+                <div class="flex flex-shrink-0 items-center mt-2">
+                  <Image alt="DGU Logo" src={logo}  height={"50"}/>
                 </div>
                 <div class="hidden md:ml-6 md:flex md:align-center md:items-center">
                   <div class="flex space-x-4 justify-center text-center">
