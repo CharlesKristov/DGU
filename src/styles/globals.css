@@ -25,3 +25,13 @@ body {
     text-wrap: balance;
   }
 }
+
+.buttons {
+  transition: color 0.4s, background-color 0.4s, transform 0.4s;
+}
+
+.buttons:hover {
+  background-color: #385185;
+  color: #ffffff;
+  transform: translateY(-5px);
+}
