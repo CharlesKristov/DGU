@@ -143,13 +143,14 @@ export default function Layout( {children} ){
         { src: HyFresh.src, alt: "HyFresh" },
         { src: GrooceriesCity.src, alt: "GrooceriesCity" },
     ];
-
+   
     const imageDataArray = [imageData1, imageData2, imageData3, imageData4, imageData5];
     const allImageData = imageDataArray.flat();
 
     return(
         <>
             <NavigationBar/>
+
             <main className="flex flex-col items-center m-3">
                     {/* Carousel Section */}
                     <Carousel plugins={[plugin.current]} className="w-3/5 aspect-video max-md:w-full">
@@ -283,9 +284,7 @@ export default function Layout( {children} ){
                         <CarouselPrevious />
                         <CarouselNext />
                     </Carousel>
-
                 {children}
-            </main>
             <Footer/>
         </>
     )
