@@ -1,4 +1,5 @@
 
+
 const ActivityCard = ({ storeName, imageSrc }) => {
     return (
         <div className="flex flex-col w-full h-full">
@@ -19,7 +20,7 @@ const ActivityCard = ({ storeName, imageSrc }) => {
                             {storeName}
                         </h2>
                     </div>
-                    <button className="self-start px-3.5 py-2 text-xs leading-5 text-center text-black bg-white rounded-lg">
+                    <button className="self-start px-3.5 py-2 text-xs leading-5 text-center text-black bg-white rounded-lg hover:bg-primary-blue hover:text-white transition-all">
                         Read More
                     </button>
                 </div>
