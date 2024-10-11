@@ -7,6 +7,12 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
 
 import Carousel1 from "../assets/hr3-model-gedung-high-rise-build-768x432.jpg";
 import Carousel2 from "../assets/FreshBase_counter.jpg";
@@ -84,13 +90,13 @@ export default function Home() {
     ];
 
     const productData1 = [
-        { imageSrc: Product1.src, altText: "Mettler Toledo logo", title: "Mettler Toledo" },
-        { imageSrc: Product2.src, altText: "Honeywell logo", title: "Honeywell" }
+        { imageSrc: Product1.src, altText: "Mettler Toledo logo", title: "Mettler Toledo", linkURL: "/products/mettler-toledo" },
+        { imageSrc: Product2.src, altText: "Honeywell logo", title: "Honeywell", linkURL: "/products/honeywell" }
     ];
 
     const productData2 = [
-        { imageSrc: Product3.src, alt: "Eutron logo", title: "Eutron" },
-        { imageSrc: Product4.src, alt: "G-LOG logo", title: "G-LOG" }
+        { imageSrc: Product3.src, alt: "Eutron logo", title: "Eutron", linkURL: "/products/eutron" },
+        { imageSrc: Product4.src, alt: "G-LOG logo", title: "G-LOG", linkURL: "/products/g-log" }
     ];
 
     const imageData1 = [
@@ -129,7 +135,6 @@ export default function Home() {
         { src: Capital.src, alt: "Capital" },
     ];
 
-
     const imageData5 = [
         { src: SuperHiro.src, alt: "SuperHiro" },
         { src: CKLCargo.src, alt: "CKLCargo" },
@@ -138,150 +143,216 @@ export default function Home() {
         { src: HyFresh.src, alt: "HyFresh" },
         { src: GrooceriesCity.src, alt: "GrooceriesCity" },
     ];
-   
+
+    const FAQ = [
+        {
+            question: "Do you provide warranty?",
+            answer: "Yes, we have warranty for every product that we sell to our customer at least 1 year.",
+            item: "item-1"
+        },
+        {
+            question: "Do you have stock for sparepart?",
+            answer: "Yes, do not worry. Our spare part are ready in case something happend.",
+            item: "item-2"
+        },
+        {
+            question: "Do you have service center?",
+            answer: "Yes, We have service center in most city in Indonesia.",
+            item: "item-3"
+        },
+        {
+            question: "Do you provide delivery?",
+            answer: "Yes, we provide delivery to every cities in Indonesia.",
+            item: "item-4"
+        },
+        {
+            question: "Do you provide wholesale?",
+            answer: "Yes, we provide both retail and whosale as we are the official authorized dealer in Indonesia.",
+            item: "item-5"
+        }
+    ];
+
     const imageDataArray = [imageData1, imageData2, imageData3, imageData4, imageData5];
     const allImageData = imageDataArray.flat();
     
     const plugin = React.useRef(
         Autoplay({ delay: 2000 })
     );
-  return (
-    <>
-        <main className="flex flex-col items-center m-3">
-            {/* Carousel Section */}
-            <Carousel plugins={[plugin.current]} className="w-3/5 aspect-video max-md:w-full">
-                <CarouselContent>
-                    {carouselData.map((item) => (
-                    <CarouselItem key={item.index}>
-                        <div className="p-1">
-                            <Card>
-                                <CardContent className="flex aspect-video items-center justify-center p-0 overflow-hidden">
-                                    <Image
-                                        src={item.src} 
-                                        alt={item.alt} 
-                                        layout="fill" 
-                                        objectFit="cover"
-                                    />
-                                </CardContent>
-                            </Card>
+
+    return (
+        <>
+            <div className="flex flex-col items-center m-3">
+                {/* Carousel Section */}
+                <Carousel plugins={[plugin.current]} className="w-3/5 aspect-video max-md:w-full">
+                    <CarouselContent>
+                        {carouselData.map((item) => (
+                            <CarouselItem key={item.index}>
+                                <div className="p-1">
+                                    <Card>
+                                        <CardContent className="relative flex aspect-video items-center justify-center p-0 overflow-hidden">
+                                            <Image
+                                                src={item.src} 
+                                                alt={item.alt} 
+                                                layout="fill" 
+                                                objectFit="cover"
+                                            />
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                </Carousel>
+
+                {/* Activities Section */}
+                <div className="mt-20">
+                    <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                        Our Activities
+                    </h2>
+                </div>
+                <div className="mt-1.5 text-base leading-6 text-secondary-black text-center">
+                    We are actively providing goods all over Indonesia.
+                </div>
+                <button className="buttons px-3.5 py-1.5 mt-3 text-xs font-semibold tracking-wider leading-5 text-center uppercase rounded-lg bg-zinc-100 text-primary-blue">
+                    See All
+                </button>
+                <section className="mx-auto my-12 max-w-full w-[900px] max-md:mx-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mx-auto justify-items-center place-content-center">
+                        {activityData.map((store, index) => (
+                        <ActivityCard
+                            key={index}
+                            storeName={store.storeName}
+                            imageSrc={store.imageSrc}
+                        />
+                        ))}
+                    </div>
+                </section>
+
+                {/* Video Youtube */}
+                <div className="mt-10">
+                    <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                        Mettler Toledo Freshbase With AI
+                    </h2>
+                </div>
+                <div className="flex justify-center w-full">
+                    <div className="relative w-3/5 h-auto aspect-video max-md:w-full">
+                        <iframe
+                        className="mt-10 absolute top-0 left-0 w-full h-full max-md:mx-0"
+                        src="https://www.youtube.com/embed/oCKHQvCqFSw"
+                        title="YouTube video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        />
+                    </div>
+                </div>
+
+                {/* Products */}
+                <div className="mt-24">
+                    <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                        Our Products
+                    </h2>
+                </div>
+                <div className="mt-1.5 text-base leading-6 text-secondary-black text-center">
+                    We are the official authorized Dealer
+                </div>
+                <section className="max-w-full w-[1099px] max-md:mt-10">
+                    <div className="mt-10 flex gap-5 max-md:flex-col max-md:mt-0">
+                        {productData1.map((image, index) => (
+                        <div key={index} className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+                            <ProductCard
+                            imageSrc={image.imageSrc}
+                            altText={image.altText}
+                            title={image.title}
+                            linkURL={image.linkURL}
+                            />
                         </div>
-                    </CarouselItem>
-                    ))}
-                </CarouselContent>
-            </Carousel>
-
-            {/* Activities Section */}
-            <div className="mt-20">
-                <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
-                    Our Activities
-                </h2>
-            </div>
-            <div className="mt-1.5 text-base leading-6 text-secondary-black text-center">
-                We are actively providing goods all over Indonesia.
-            </div>
-            <button className="buttons px-3.5 py-1.5 mt-3 text-xs font-semibold tracking-wider leading-5 text-center uppercase rounded-lg bg-zinc-100 text-primary-blue">
-                See All
-            </button>
-            <section className="mx-auto my-12 max-w-full w-[900px] max-md:mx-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mx-auto justify-items-center place-content-center">
-                    {activityData.map((store, index) => (
-                    <ActivityCard
-                        key={index}
-                        storeName={store.storeName}
-                        imageSrc={store.imageSrc}
-                    />
-                    ))}
-                </div>
-            </section>
-
-            {/* Video Youtube */}
-            <div className="mt-10">
-                <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
-                    Mettler Toledo Freshbase With AI
-                </h2>
-            </div>
-            <div className="flex justify-center w-full">
-                <div className="relative w-3/5 h-auto aspect-video max-md:w-full">
-                    <iframe
-                    className="mt-10 absolute top-0 left-0 w-full h-full max-md:mx-0"
-                    src="https://www.youtube.com/embed/oCKHQvCqFSw"
-                    title="YouTube video"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    />
-                </div>
-            </div>
-
-            {/* Products */}
-            <div className="mt-24">
-                <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
-                    Our Products
-                </h2>
-            </div>
-            <div className="mt-1.5 text-base leading-6 text-secondary-black text-center">
-                We are the official authorized Dealer
-            </div>
-            <section className="max-w-full w-[1099px] max-md:mt-10">
-                <div className="mt-10 flex gap-5 max-md:flex-col max-md:mt-0">
-                    {productData1.map((image, index) => (
-                    <div key={index} className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                        <ProductCard
-                        imageSrc={image.imageSrc}
-                        altText={image.altText}
-                        title={image.title}
-                        />
+                        ))}
                     </div>
-                    ))}
-                </div>
-                <div className="mt-10 flex gap-5 max-md:flex-col">
-                    {productData2.map((image, index) => (
-                    <div key={index} className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                        <ProductCard
-                        imageSrc={image.imageSrc}
-                        altText={image.alt}
-                        title={image.title}
-                        />
-                    </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Customers */}
-            <div className="mt-24">
-                <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
-                    Our Customers
-                </h2>
-            </div>
-            <section className="grid grid-cols-4 md:grid-cols-6 gap-4 mt-12">
-                {allImageData.map((image, index) => (
-                    <CustomerImage key={index} src={image.src} alt={image.alt} />
-                ))}
-            </section>
-
-            {/* News */}
-            <div className="mt-24">
-                <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
-                    News
-                </h2>
-            </div>
-            <Carousel className="w-3/5 mt-12">
-                <CarouselContent>
-                    {Array.from({ length: 5 }).map((_, index) => (
-                        <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                            <div className="p-1">
-                            <Card>
-                                <CardContent className="flex aspect-square items-center justify-center p-6">
-                                    <span className="text-3xl font-semibold">{index + 1}</span>
-                                </CardContent>
-                            </Card>
+                    <div className="mt-10 flex gap-5 max-md:flex-col">
+                        {productData2.map((image, index) => (
+                            <div key={index} className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+                                <ProductCard
+                                    imageSrc={image.imageSrc}
+                                    altText={image.alt}
+                                    title={image.title}
+                                    linkURL={image.linkURL}
+                                />
                             </div>
-                        </CarouselItem>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Customers */}
+                <div className="mt-24">
+                    <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                        Our Customers
+                    </h2>
+                </div>
+                <section className="grid grid-cols-4 md:grid-cols-6 gap-4 mt-12">
+                    {allImageData.map((image, index) => (
+                        <CustomerImage key={index} src={image.src} alt={image.alt} />
                     ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-            </Carousel>
-        </main>
-    </>
-  );
+                </section>
+
+                {/* News */}
+                <div className="mt-24">
+                    <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                        News
+                    </h2>
+                </div>
+                <Carousel className="w-3/5 mt-12">
+                    <CarouselContent>
+                        {Array.from({ length: 7 }).map((_, index) => (
+                            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                                <div className="p-1">
+                                <Card>
+                                    <CardContent className="flex aspect-square items-center justify-center p-6">
+                                        <span className="text-3xl font-semibold">{index + 1}</span>
+                                    </CardContent>
+                                </Card>
+                                </div>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </Carousel>
+            </div>
+
+            {/* FAQ */}
+            <section className="flex flex-col justify-center items-center self-stretch px-20 py-20 mt-20 bg-stone-50 max-md:px-5 max-md:mt-10 max-md:max-w-full">
+                <div className="flex flex-col max-w-full w-[1100px]">
+                    <div className="max-md:max-w-full">
+                        <div className="flex gap-5 max-md:flex-col">
+                            <div className="flex flex-col w-2/5 max-md:ml-0 max-md:w-full">
+                                <div className="flex flex-col w-full">
+                                    <h2 className="pr-36 text-4xl font-semibold leading-[49.5px] text-stone-950 max-md:pr-5 max-md:text-2xl">
+                                        Frequently Asked Questions
+                                    </h2>
+                                    <div className="flex items-center self-start mt-2 text-base font-light leading-6">
+                                        <p className="self-stretch my-auto text-stone-500">
+                                            Haven't found what you're looking for?
+                                            <a href="https://www.linkedin.com/in/benedictaurel/" className="self-stretch my-auto text-sky-600 ml-1">
+                                                Contact Us
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex flex-col ml-5 w-1/2 max-md:ml-0 max-md:w-full">
+                                <Accordion type="single" collapsible>
+                                    {FAQ.map((faq) => (
+                                        <AccordionItem value={faq.item}>
+                                            <AccordionTrigger className="text-2xl max-md:text-xl">{faq.question}</AccordionTrigger>
+                                            <AccordionContent className="text-sm">{faq.answer}</AccordionContent>
+                                        </AccordionItem>
+                                    ))}
+                                </Accordion>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
+    );
 }
