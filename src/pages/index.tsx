@@ -350,7 +350,7 @@ export default function Home() {
                                                 objectFit="cover"
                                             />
                                         </CardContent>
-                                        <CardDescription className="p-2 text-center font-medium">
+                                        <CardDescription className="p-2 text-center font-medium text-sm md:text-lg lg:text-xl">
                                             {news.alt}
                                         </CardDescription>
                                     </Card>
