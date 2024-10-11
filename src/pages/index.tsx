@@ -375,7 +375,7 @@ export default function Home() {
                                     </h2>
                                     <div className="flex items-center self-start mt-2 text-base font-light leading-6">
                                         <p className="self-stretch my-auto text-stone-500">
-                                            Haven't found what you're looking for?
+                                            Haven&apos;t found what you&apos;re looking for?
                                             <a href="https://www.linkedin.com/in/benedictaurel/" className="self-stretch my-auto text-sky-600 ml-1">
                                                 Contact Us
                                             </a>
@@ -386,7 +386,7 @@ export default function Home() {
                             <div className="flex flex-col ml-5 w-1/2 max-md:ml-0 max-md:w-full">
                                 <Accordion type="single" collapsible>
                                     {FAQ.map((faq) => (
-                                        <AccordionItem value={faq.item}>
+                                        <AccordionItem key={faq.item} value={faq.item}>
                                             <AccordionTrigger className="text-2xl max-md:text-xl">{faq.question}</AccordionTrigger>
                                             <AccordionContent className="text-sm">{faq.answer}</AccordionContent>
                                         </AccordionItem>
