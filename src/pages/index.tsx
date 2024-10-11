@@ -1,5 +1,7 @@
 import Autoplay from "embla-carousel-autoplay";
-import { Card, CardContent } from "@/components/ui/card";
+import { EmblaOptionsType } from 'embla-carousel'
+
+import { Card, CardContent, CardDescription } from "@/components/ui/card";
 import {
     Carousel,
     CarouselContent,
@@ -138,6 +140,37 @@ export default function Home() {
         { src: HyFresh.src, alt: "HyFresh" },
         { src: GrooceriesCity.src, alt: "GrooceriesCity" },
     ];
+
+    const News = [
+      {
+        src: "https://dgu.co.id/wp-content/uploads/2024/04/Presentation-Mettler-Toledo-FreshBase-Plus-AI-with-Lion-Super-Indo-team-scaled.jpg",
+        alt: "Presentation Mettler Toledo FreshBase Plus AI with Lion Super Indo team",
+      },
+      {
+        src: "https://dgu.co.id/wp-content/uploads/2024/04/Conduct-coordination-with-Lotte-team-for-information-technologi-in-the-store-scaled.jpg",
+        alt: "Conduct coordination with Lotte team for information technologi in the store",
+      },
+      {
+        src: "https://dgu.co.id/wp-content/uploads/2024/04/Training-New-Product-FreshBase-Plus-with-Artificial-intelligence-2-scaled.jpg",
+        alt: "Training New Product FreshBase Plus With Artificial Intelligence",
+      },
+      {
+        src: "https://dgu.co.id/wp-content/uploads/2024/04/Colaboration-with-Mettler-Toledo-China-Malaysia-3.jpg",
+        alt: "Colaboration with Mettler Toledo China & Malaysia 3",
+      },
+      {
+        src: "https://dgu.co.id/wp-content/uploads/2024/04/Colaboration-with-Mettler-Toledo-China-Malaysia-1.jpg",
+        alt: "Colaboration with Mettler Toledo China & Malaysia 1",
+      },
+      {
+        src: "https://dgu.co.id/wp-content/uploads/2024/04/The-first-priority-is-to-minimize-equipment-downtime-in-the-shop-scaled.jpg",
+        alt: "The first priority is to minimize equipment downtime in the shop",
+      },
+      {
+        src: "https://dgu.co.id/wp-content/uploads/2024/04/Training-in-Lotte-Bintaro--scaled.jpg",
+        alt: "Training in Lotte Bintaro",
+      }
+    ];
    
     const imageDataArray = [imageData1, imageData2, imageData3, imageData4, imageData5];
     const allImageData = imageDataArray.flat();
@@ -145,17 +178,19 @@ export default function Home() {
     const plugin = React.useRef(
         Autoplay({ delay: 2000 })
     );
+    const OPTIONS: EmblaOptionsType = { loop: true }
+
   return (
     <>
-        <main className="flex flex-col items-center m-3">
+        <main className="flex flex-col items-center bg-slate-50 pb-3">
             {/* Carousel Section */}
-            <Carousel plugins={[plugin.current]} className="w-3/5 aspect-video max-md:w-full">
+            <Carousel plugins={[plugin.current]} className="w-3/5 aspect-video max-md:w-full p-3">
                 <CarouselContent>
                     {carouselData.map((item) => (
                     <CarouselItem key={item.index}>
                         <div className="p-1">
                             <Card>
-                                <CardContent className="flex aspect-video items-center justify-center p-0 overflow-hidden">
+                                <CardContent className="relative flex aspect-video items-center justify-center p-0 overflow-hidden">
                                     <Image
                                         src={item.src} 
                                         alt={item.alt} 
@@ -264,16 +299,24 @@ export default function Home() {
                     News
                 </h2>
             </div>
-            <Carousel className="w-3/5 mt-12">
+            <Carousel className="w-3/5 mt-12" opts={OPTIONS}>
                 <CarouselContent>
-                    {Array.from({ length: 5 }).map((_, index) => (
+                    {News.map((news, index) => (
                         <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                             <div className="p-1">
-                            <Card>
-                                <CardContent className="flex aspect-square items-center justify-center p-6">
-                                    <span className="text-3xl font-semibold">{index + 1}</span>
-                                </CardContent>
-                            </Card>
+                                <Card className="h-full">
+                                    <CardContent className="relative flex aspect-square items-center justify-center p-0">
+                                    <Image
+                                            src={news.src} 
+                                            alt={news.alt} 
+                                            layout="fill" 
+                                            objectFit="cover"
+                                        />
+                                    </CardContent>
+                                    <CardDescription className="p-2 text-center font-medium">
+                                        {news.alt}
+                                    </CardDescription>
+                                </Card>
                             </div>
                         </CarouselItem>
                     ))}
