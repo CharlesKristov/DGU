@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import logo from "../assets/logo.png";
+import Link from "next/link";
 
 
 export default function NavigationBar(){
@@ -34,19 +35,21 @@ export default function NavigationBar(){
 
               <div class="flex flex-1 items-center justify-center md:items-end md:justify-center md:align-center">
                 <div class="flex flex-shrink-0 items-center mt-2">
-                  <Image alt="DGU Logo" src={logo}  height={"50"}/>
+                  <Link href={"/"}>
+                    <Image alt="DGU Logo" src={logo}  height={"50"}/>
+                  </Link>
                 </div>
                 <div class="hidden md:ml-6 md:flex md:align-center md:items-center">
                   <div class="flex space-x-4 justify-center text-center">
-                    <a href="#" class="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300">Products</a>
-                    <a href="#" class="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300">Spareparts</a>
-                    <a href="#" class="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300">Service & Support</a>
-                    <a href="#" class="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300">Activity</a>
-                    <a href="#" class="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300">About Us</a>
-                    <a href="#" class="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300">Contact Us</a>
+                    <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"/#products"}>Products</Link>
+                    <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"#"}>Spareparts</Link>
+                    <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"#"}>Service & Support</Link>
+                    <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"#"}>Activity</Link>
+                    <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"#"}>About</Link>
+                    <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"#"}>Contact Us</Link>
                   </div>
                   <div className="flex space-x-4 justify-center text-center pl-3">
-                    <a href="#" className="relative rounded-md bg-gray-700 p-1 px-1 text-white text-sm font-medium text-gray-600 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:bg-black before:scale-x-0 before:origin-left before:transition before:duration-300 hover:bg-gray-600 active:bg-gray-800">Request Form</a>
+                    <Link href={"#"} className="relative rounded-md bg-gray-700 px-2 py-2 text-white text-sm font-small text-gray-600 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:bg-black before:scale-x-0 before:origin-left before:transition before:duration-300 hover:bg-gray-600 active:bg-gray-800">Request Form</Link>
                   </div>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-import { Weight, Apple, LeafyGreen, Egg } from 'lucide-react'
+import {  Package, Shield, BarChart, Sun } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
@@ -13,69 +13,67 @@ export default function Honeywell() {
                     <h1 className="text-4xl font-bold text-primary-blue mb-2">Honeywell</h1>
                 </header>
 
-                <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
-                <div>
-                    <Image
-                    src={HoneyWell}
-                    alt="Honeywell"
-                    className="rounded-lg w-full h-auto"
-                    />
-                </div>
-                <div className="space-y-6">
-                    <h2 className="text-2xl font-semibold text-black">What is Honeywell?</h2>
-                    <p className="text-gray-600">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Vestibulum sodales diam ac nisl auctor, nec cursus massa condimentum.
-                    Fusce vel gravida mauris. In vitae justo dui. Curabitur et fringilla mauris. 
-                    Nulla convallis, nibh quis bibendum vulputate, lectus tellus malesuada mauris, 
-                    quis interdum enim leo pretium purus. Mauris congue a ligula sit amet gravida. 
-                    In hac habitasse platea dictumst. Vestibulum ante dolor, lacinia eget urna scelerisque, feugiat bibendum lorem.
-                    </p>
-                </div>
+                <div className="grid md:grid-cols-2 gap-8 items-start mb-12">
+                    <div>
+                        <Image
+                            src={HoneyWell}
+                            alt="Honeywell"
+                            className="rounded-lg w-full h-auto"
+                        />
+                    </div>
+                    <div className="space-y-6">
+                        <h2 className="text-2xl font-semibold text-black">What is Honeywell?</h2>
+                        <p className="text-gray-600">
+                            Honeywell is a global leader in technology and manufacturing, offering solutions in areas such as automation, energy efficiency, safety, and security. Their innovative technologies empower businesses across industries to enhance operational efficiency and sustainability.
+                        </p>
+                    </div>
                 </div>
 
-                <Tabs defaultValue="lorem" className="mb-12">
+                <Tabs defaultValue="features" className="mb-12">
                     <TabsList className="grid w-full grid-cols-3 bg-primary-blue text-white">
-                        <TabsTrigger value="lorem" className="max-md:text-xs">Lorem</TabsTrigger>
-                        <TabsTrigger value="ipsum" className="max-md:text-xs">Ipsum</TabsTrigger>
-                        <TabsTrigger value="dolor" className="max-md:text-xs">Dolor</TabsTrigger>
+                        <TabsTrigger value="features" className="max-md:text-xs">Features</TabsTrigger>
+                        <TabsTrigger value="industries" className="max-md:text-xs">Industries Served</TabsTrigger>
+                        <TabsTrigger value="benefits" className="max-md:text-xs">Benefits</TabsTrigger>
                     </TabsList>
-                    <TabsContent value="lorem">
+                    <TabsContent value="features">
                         <Card>
                             <CardHeader>
-                                <CardTitle>Lorem</CardTitle>
+                                <CardTitle>Features</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-2">
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                <p>• Advanced automation and control systems for industrial applications</p>
+                                <p>• Cutting-edge cybersecurity solutions to protect critical infrastructure</p>
+                                <p>• Energy-efficient products and systems to drive sustainability</p>
+                                <p>• Real-time data analytics to optimize performance and safety</p>
+                                <p>• Smart building technologies for efficient facility management</p>
                             </CardContent>
                         </Card>
                     </TabsContent>
-                    <TabsContent value="ipsum">
+                    <TabsContent value="industries">
                         <Card>
                             <CardHeader>
-                                <CardTitle>Ipsum</CardTitle>
+                                <CardTitle>Industries Served</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-2">
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                <p>• Aerospace and Defense</p>
+                                <p>• Oil and Gas</p>
+                                <p>• Manufacturing and Industrial</p>
+                                <p>• Healthcare and Pharmaceuticals</p>
+                                <p>• Building and Facility Management</p>
                             </CardContent>
                         </Card>
                     </TabsContent>
-                    <TabsContent value="dolor">
+                    <TabsContent value="benefits">
                         <Card>
                             <CardHeader>
-                                <CardTitle>Dolor</CardTitle>
+                                <CardTitle>Benefits</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-2">
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-                                <p>• Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                <p>• Enhanced operational efficiency through automation</p>
+                                <p>• Improved sustainability with energy-efficient solutions</p>
+                                <p>• Increased safety and security with advanced monitoring systems</p>
+                                <p>• Real-time visibility and control over critical infrastructure</p>
+                                <p>• Cost reduction and optimized resource allocation</p>
                             </CardContent>
                         </Card>
                     </TabsContent>
@@ -87,49 +85,50 @@ export default function Honeywell() {
                         <Card>
                             <CardHeader>
                                 <CardTitle className="flex items-center">
-                                    <Weight className="w-5 h-5 mr-2 text-blue-500" />
-                                    Lorem Ipsum
+                                    <Package className="w-5 h-5 mr-2 text-blue-500" />
+                                    Industry-Leading Automation Solutions
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sodales diam ac nisl auctor, nec cursus massa condimentum.
+                                Honeywell delivers cutting-edge automation technologies that optimize industrial operations, improve production output, and reduce downtime across a variety of sectors.
                             </CardContent>
                         </Card>
                         <Card>
                             <CardHeader>
                                 <CardTitle className="flex items-center">
-                                    <Apple className="w-5 h-5 mr-2 text-red-500" />
-                                    Lorem Ipsum
+                                    <Shield className="w-5 h-5 mr-2 text-red-500" />
+                                    Unmatched Security and Cybersecurity
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sodales diam ac nisl auctor, nec cursus massa condimentum.
+                                Honeywell provides industry-leading security solutions, including physical and cybersecurity services, ensuring the protection of critical infrastructure and assets.
                             </CardContent>
                         </Card>
                         <Card>
                             <CardHeader>
                                 <CardTitle className="flex items-center">
-                                    <LeafyGreen className="w-5 h-5 mr-2 text-green-500" />
-                                    Lorem Ipsum
+                                    <BarChart className="w-5 h-5 mr-2 text-green-500" />
+                                    Data-Driven Performance Optimization
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sodales diam ac nisl auctor, nec cursus massa condimentum.
+                                With Honeywell&apos;s advanced analytics, businesses gain real-time insights into their operations, enabling data-driven decision-making and enhanced performance.
                             </CardContent>
                         </Card>
                         <Card>
                             <CardHeader>
                                 <CardTitle className="flex items-center">
-                                    <Egg className="w-5 h-5 mr-2 text-yellow-500" />
-                                    Lorem Ipsum
+                                    <Sun className="w-5 h-5 mr-2 text-yellow-500" />
+                                    Sustainability and Energy Efficiency
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sodales diam ac nisl auctor, nec cursus massa condimentum.
+                                Honeywell&apos;s energy-efficient solutions help businesses reduce their environmental footprint, lower energy costs, and meet sustainability goals.
                             </CardContent>
                         </Card>
                     </div>
                 </section>
+
 
                 <div className="text-center text-gray-600">
                     <p>Learn more about our products at www.honeywell.com</p>

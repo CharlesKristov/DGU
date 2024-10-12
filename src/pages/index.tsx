@@ -282,7 +282,7 @@ export default function Home() {
                 </div>
 
                 {/* Products */}
-                <div className="mt-24">
+                <div id="products" className="mt-24">
                     <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
                         Our Products
                     </h2>
@@ -375,7 +375,7 @@ export default function Home() {
                                     <div className="flex items-center self-start mt-2 text-base font-light leading-6">
                                         <p className="self-stretch my-auto text-stone-500">
                                             Haven&apos;t found what you&apos;re looking for?
-                                            <a href="https://www.linkedin.com/in/benedictaurel/" className="self-stretch my-auto text-sky-600 ml-1">
+                                            <a href="https://www.linkedin.com/in/benedictaurel/" target="_black" className="self-stretch my-auto text-sky-600 ml-1">
                                                 Contact Us
                                             </a>
                                         </p>
