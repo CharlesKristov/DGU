@@ -212,7 +212,7 @@ export default function Home() {
         Autoplay({ delay: 2000 })
     );
 
-    const OPTIONS: EmblaOptionsType = { loop: true }
+    const OPTIONS: EmblaOptionsType = { loop: true };
 
     return (
         <>
@@ -330,7 +330,6 @@ export default function Home() {
                 </section>
 
                 {/* News */}
-                {/* News */}
                 <div className="mt-24">
                     <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
                         News
@@ -397,6 +396,11 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* Whatsapp Floating Button */}
+            <a href="https://api.whatsapp.com/send/?phone=6281287067575&text&type=phone_number&app_absent=0" target="_blank" className="wa text-decoration-none fixed bottom-8 right-8 z-50 bg-emerald-500 border-emerald-500 border-[10px] align-center text-3xl rounded-full">
+                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6bf46f2c5ca1959c117314473aa3d3413ef7facec08211e2313034ae214b0ccc?placeholderIfAbsent=true&apiKey=c0d3c16742ae4f458a4da43a0d02c813" />
+            </a>
         </>
     );
 }

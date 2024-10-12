@@ -36,6 +36,14 @@ body {
   transform: translateY(-5px);
 }
 
+.wa {
+  transition: transform 0.4s;
+}
+
+.wa:hover {
+  transform: translateY(-5px);
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
