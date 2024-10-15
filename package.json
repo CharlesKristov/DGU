@@ -12,6 +12,8 @@
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.1",
+    "@vercel/blob": "^0.25.1",
+    "@vercel/postgres": "^0.10.0",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "class-variance-authority": "^0.7.0",

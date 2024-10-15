@@ -9,6 +9,12 @@ const nextConfig = {
         port: '',
         pathname: '/wp-content/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos', // Add this line
+        port: '',
+        pathname: '/**', // This allows all paths under picsum.photos
+      },
     ],
   },
 };

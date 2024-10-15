@@ -21,10 +21,6 @@ import Carousel2 from "../assets/FreshBase_counter.jpg";
 import Carousel3 from "../assets/bPlus_T2_Store1rezise.jpg";
 import Carousel4 from "../assets/bPlus_T2_Store3.resize.jpg";
 
-import Activities1 from "../assets/activities1.png";
-import Activities2 from "../assets/activities2.png";
-import Activities3 from "../assets/activities3.png";
-
 import Product1 from "../assets/product1.png";
 import Product2 from "../assets/product2.png";
 import Product3 from "../assets/product3.png";
@@ -65,7 +61,8 @@ import ActivityCard from "../components/ActivityCard";
 import ProductCard from "../components/ProductCard";
 import CustomerImage from "../components/CustomerImage";
 import Image from 'next/image';
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -76,20 +73,25 @@ export default function Home() {
         { src: Carousel4.src, index: 4, alt: "bPlus T2 Store3" }
     ];
 
-    const activityData = [
-    {
-        storeName: "Lion Super Indo Tirtayasa Lampung",
-        imageSrc: Activities1.src
-    },
-    {
-        storeName: "Lion Super Indo Kalijaga Cirebon",
-        imageSrc: Activities2.src
-    },
-    {
-        storeName: "Superindo - Q Square Sentul",
-        imageSrc: Activities3.src
-    }
-    ];
+    type Activity = {
+        activity_id: string;
+        brand_name: string;
+        store_name: string;
+        photo_url: string;
+    };
+
+    const [activityData, setActivityData] = useState<Activity[]>([]);
+
+    useEffect(() => {
+        // Fetch data from the API
+        async function fetchActivities() {
+          const response = await fetch('/api/activities');
+          const data = await response.json();
+          setActivityData(data.slice(0, 3));
+        }
+    
+        fetchActivities();
+      }, []); 
 
     const productData1 = [
         { imageSrc: Product1.src, altText: "Mettler Toledo logo", title: "Mettler Toledo", linkURL: "/products/mettler-toledo" },
@@ -249,15 +251,17 @@ export default function Home() {
                     We are actively providing goods all over Indonesia.
                 </div>
                 <button className="buttons px-3.5 py-1.5 mt-3 text-xs font-semibold tracking-wider leading-5 text-center uppercase rounded-lg bg-zinc-100 text-primary-blue">
-                    See All
+                    <Link href={"/activities"} className="no-underline text-black">See All</Link>
                 </button>
                 <section className="mx-auto my-12 max-w-full w-[900px] max-md:mx-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mx-auto justify-items-center place-content-center">
-                        {activityData.map((store, index) => (
+                        {activityData.map((activity, index) => (
                         <ActivityCard
                             key={index}
-                            storeName={store.storeName}
-                            imageSrc={store.imageSrc}
+                            brandName={activity.brand_name}
+                            storeName={activity.store_name}
+                            imageSrc={activity.photo_url}
+                            href={"/activities/"+activity.activity_id}
                         />
                         ))}
                     </div>
@@ -341,7 +345,7 @@ export default function Home() {
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                                 <div className="p-1">
                                     <Card className="h-full">
-                                        <CardContent className="relative flex aspect-square items-center justify-center p-0">
+                                        <CardContent className="relative flex aspect-[16/9] items-center justify-center p-0">
                                         <Image
                                                 src={news.src} 
                                                 alt={news.alt} 
