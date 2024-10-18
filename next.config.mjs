@@ -15,6 +15,12 @@ const nextConfig = {
         port: '',
         pathname: '/**', // This allows all paths under picsum.photos
       },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com', // Add this line
+        port: '',
+        pathname: '/**', // This allows all paths under picsum.photos
+      },
     ],
   },
 };

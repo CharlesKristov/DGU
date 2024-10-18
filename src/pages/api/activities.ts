@@ -8,7 +8,8 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
         SELECT 
             s.brand_name,
             s.store_name,
-            a.id as activity_id,
+            a.activity_description,
+            a.id AS activity_id,
             p.photo_url
         FROM 
             stores s
@@ -16,8 +17,14 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
             activities a ON s.id = a.store_id
         JOIN 
             photos p ON a.id = p.activity_id
+        WHERE 
+            p.created_at = (
+                SELECT MIN(created_at) 
+                FROM photos 
+                WHERE activity_id = a.id
+            )
         ORDER BY 
-            a.created_at DESC;
+            a.created_at DESC;  -- Order by the activity's created_at date
         `; 
         res.status(200).json(rows);
     } catch (error) {
