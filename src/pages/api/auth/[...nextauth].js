@@ -9,6 +9,7 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET, 
   callbacks: {
     async signIn({ profile }) {
       // Check if the user's email and name exist in the database
