@@ -169,7 +169,7 @@ export default function ServiceSupport() {
             <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
                 Services & Support
             </h2>
-            <div className="mt-1.5 text-base leading-6 text-secondary-black text-center mb-4">
+            <div className="mt-1.5 text-base leading-6 text-black text-center mb-4">
                 We have more than 100 service points across Indonesia
             </div>
             <div className="w-full max-w-md mb-6 flex">
