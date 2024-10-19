@@ -79,7 +79,7 @@ export default function NavigationBar() {
                   </Link>
                   <Link
                     className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300"
-                    href={"#"}
+                    href={"/service-support"}
                   >
                     Service & Support
                   </Link>
@@ -97,7 +97,7 @@ export default function NavigationBar() {
                   </Link>
                   <Link
                     className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300"
-                    href={"#"}
+                    href={"/contact-us"}
                   >
                     Contact Us
                   </Link>

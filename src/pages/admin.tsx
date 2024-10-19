@@ -50,9 +50,9 @@ export default function AdminPage() {
       <h1>Welcome to the Admin Page</h1>
       <p>{`Hello, ${session.user.name}`}</p>
 
-      <div className="flex flex-col text-start w-1/2">
-        <h2 className="mt-4 items-start">Manage Items:</h2>
-        <div className="flex flex-col items-start mt-2">
+      <div className="flex flex-col text-center w-1/2">
+        <h2 className="mt-4 items-center">Manage Items:</h2>
+        <div className="flex flex-col items-center mt-2">
           <Button onClick={handleManageActivities} className="mb-2 w-1/4">
             Manage Activities
           </Button>
