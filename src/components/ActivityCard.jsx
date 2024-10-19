@@ -27,7 +27,7 @@ const ActivityCard = ({ brandName, storeName, imageSrc, href }) => {
                         </h2>
                     </div>
                     {href != "nolink" ? ( // Conditional rendering based on href
-                        <Link href={href} className="no-underline text-black self-start px-3.5 py-2 text-xs leading-5 text-center text-black bg-white rounded-lg hover:bg-primary-blue hover:text-white transition-all">
+                        <Link href={href} className="no-underline text-black self-start px-3.5 py-2 text-xs leading-5 text-center bg-white rounded-lg hover:bg-primary-blue hover:text-white transition-all">
                                 See More
                         </Link>
                     ) : (

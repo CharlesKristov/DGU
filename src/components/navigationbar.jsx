@@ -43,10 +43,10 @@ export default function NavigationBar(){
                   <div class="flex space-x-4 justify-center text-center">
                     <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"/#products"}>Products</Link>
                     <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"#"}>Spareparts</Link>
-                    <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"#"}>Service & Support</Link>
+                    <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"/service-support"}>Service & Support</Link>
                     <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"/activities"}>Activity</Link>
                     <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"#"}>About</Link>
-                    <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"#"}>Contact Us</Link>
+                    <Link className="relative px-1 text-sm font-medium text-gray-800 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-black before:scale-x-0 before:origin-left hover:before:scale-x-100 before:transition before:duration-300" href={"/contact-us"}>Contact Us</Link>
                   </div>
                   <div className="flex space-x-4 justify-center text-center pl-3">
                     <Link href={"#"} className="relative rounded-md bg-gray-700 px-2 py-2 text-white text-sm font-small text-gray-600 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:bg-black before:scale-x-0 before:origin-left before:transition before:duration-300 hover:bg-gray-600 active:bg-gray-800">Request Form</Link>
@@ -62,10 +62,10 @@ export default function NavigationBar(){
             <div className="space-y-1 px-2 pb-3 pt-2 bg-gray-800">
               <a href="#" class="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800">Products</a>
               <a href="#" class="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800">Spareparts</a>
-              <a href="#" class="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800">Service & Support</a>
+              <a href="/service-support" class="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800">Service & Support</a>
               <a href="#" class="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800">Activity</a>
               <a href="#" class="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800">About Us</a>
-              <a href="#" class="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800">Contact Us</a>
+              <a href="/contact-us" class="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800">Contact Us</a>
             </div>
           </div>
         )}

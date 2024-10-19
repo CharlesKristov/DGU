@@ -32,8 +32,17 @@ body {
 
 .buttons:hover {
   background-color: #385185;
-  color: #ffffff;
+  color: white;
   transform: translateY(-5px);
+}
+
+.submitbutton {
+  transition: color 0.4s, background-color 0.4s;
+}
+
+.submitbutton:hover {
+  background-color: white;
+  color: #385185;
 }
 
 .wa {

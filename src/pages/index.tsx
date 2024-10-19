@@ -85,13 +85,13 @@ export default function Home() {
     useEffect(() => {
         // Fetch data from the API
         async function fetchActivities() {
-          const response = await fetch('/api/activities');
-          const data = await response.json();
-          setActivityData(data.slice(0, 3));
+            const response = await fetch('/api/activities');
+            const data = await response.json();
+            setActivityData(data.slice(0, 3));
         }
     
         fetchActivities();
-      }, []); 
+    }, []); 
 
     const productData1 = [
         { imageSrc: Product1.src, altText: "Mettler Toledo logo", title: "Mettler Toledo", linkURL: "/products/mettler-toledo" },
@@ -250,9 +250,11 @@ export default function Home() {
                 <div className="mt-1.5 text-base leading-6 text-secondary-black text-center">
                     We are actively providing goods all over Indonesia.
                 </div>
-                <button className="buttons px-3.5 py-1.5 mt-3 text-xs font-semibold tracking-wider leading-5 text-center uppercase rounded-lg bg-zinc-100 text-primary-blue">
-                    <Link href={"/activities"} className="no-underline text-black">See All</Link>
-                </button>
+                <Link href={"/activities"} className="text-decoration-none">
+                    <button className="buttons px-3.5 py-1.5 mt-3 text-xs font-semibold tracking-wider leading-5 text-center uppercase rounded-lg bg-zinc-100 text-primary-blue hover:text-white transition-all">
+                        See All
+                    </button>
+                </Link> 
                 <section className="mx-auto my-12 max-w-full w-[900px] max-md:mx-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mx-auto justify-items-center place-content-center">
                         {activityData.map((activity, index) => (
@@ -294,7 +296,7 @@ export default function Home() {
                 <div className="mt-1.5 text-base leading-6 text-secondary-black text-center">
                     We are the official authorized Dealer
                 </div>
-                <section className="max-w-full w-[1099px] max-md:mt-10">
+                <section className="max-w-full w-[1000px] max-md:mt-10">
                     <div className="mt-10 flex gap-5 max-md:flex-col max-md:mt-0">
                         {productData1.map((image, index) => (
                         <div key={index} className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
