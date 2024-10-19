@@ -21,7 +21,15 @@ const nextConfig = {
         port: '',
         pathname: '/**', // This allows all paths under picsum.photos
       },
+      {
+        protocol: 'https',
+        hostname: 'hgvjksvpelk4t9bo.public.blob.vercel-storage.com', // Add this line
+        port: '',
+        pathname: '/**', // This allows all paths under picsum.photos
+      },
     ],
+    domains: ['hgvjksvpelk4t9bo.public.blob.vercel-storage.com'], // Add your blob storage domain here
+
   },
 };
 

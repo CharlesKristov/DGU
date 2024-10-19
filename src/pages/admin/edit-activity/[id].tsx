@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { signOut, useSession } from 'next-auth/react';
 
 // Define the types for activity and photo data
 interface PhotoData {
@@ -20,6 +21,21 @@ export default function ActivityDetail() {
     const { id } = router.query; // Get the activity ID from the URL
     const [activity, setActivity] = useState<Activity | null>(null);
     const [photos, setPhotos] = useState<PhotoData[]>([]); // Array of PhotoData
+    
+    const { data: session, status } = useSession();
+    const [isAuthorized, setIsAuthorized] = useState(false);
+  
+    
+    useEffect(() => {
+            if (status === 'authenticated') {
+            if (session.user.role === 'admin') {
+                setIsAuthorized(true);
+            } else {
+                router.push('/'); 
+                signOut();
+            }
+        }
+    }, [status, session, router]);
 
     // Fetch activity and photos from the API
     useEffect(() => {
@@ -27,6 +43,17 @@ export default function ActivityDetail() {
             fetchActivityDetail(id.toString());
         }
     }, [id]);
+    
+  
+    if (status === 'loading') return <p className='items-center'>Loading...</p>;
+  
+    if (!session) {
+      router.push('/');
+    }
+  
+    if (!isAuthorized) return <p>Checking authorization...</p>;
+
+    
 
     async function fetchActivityDetail(activityId: string) {
         try {
