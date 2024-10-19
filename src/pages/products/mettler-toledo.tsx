@@ -1,136 +1,54 @@
-import {  Scale, Settings, Activity, Thermometer } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import ProductsCard from "../../components/ProductsCard";
 
-import MettlerToledo from "../../assets/product1.png";
-import Image from "next/image";
+import bCom_S from "../../assets/MT/bCom_S.jpg";
+import bPlus_T2 from "../../assets/MT/bPlus_T2.png";
+import bPlus_C2 from "../../assets/MT/bPlus_C2.jpeg";
+import bPlus_U2 from "../../assets/MT/bPlus_U2.jpg";
+import bPlus_Hanging from "../../assets/MT/bPlus_Hanging.jpg";
+import FreshBase_U2 from "../../assets/MT/FreshBase_U2.png";
+import FreshBase_C2 from "../../assets/MT/FreshBase_C2.png";
+import FreshBase_AI from "../../assets/MT/FreshBase_AI.jpg";
+import bRite_Standard from "../../assets/MT/bRite_Standard.jpg";
+import BBA231 from "../../assets/MT/BBA231.jpg";
+import FloorScale from "../../assets/MT/FloorScale(PFA220 - ES).jpg";
 
 export default function Mettler() {
-    return (
-        <div className="min-h-screen bg-gradient-to-b py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-                <header className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-primary-blue mb-2">Mettler Toredo</h1>
-                </header>
+    const productMettler = [
+        { imageSrc: bCom_S.src, altText: "bCom_S logo", title: "bCom S", linkURL: "/products/mettler-toledo/bcom-s" },
+        { imageSrc: bPlus_T2.src, altText: "bPlus_T2 logo", title: "bPlus T2", linkURL: "/products/mettler-toledo/bplus-T2" },
+        { imageSrc: bPlus_C2.src, altText: "bPlus_C2 logo", title: "bPlus C2", linkURL: "/products/mettler-toledo/bplus-C2" },
+        { imageSrc: bPlus_U2.src, altText: "bPlus_U2 logo", title: "bPlus U2", linkURL: "/products/mettler-toledo/bplus-U2" },
+        { imageSrc: bPlus_Hanging.src, altText: "bPlus_Hanging logo", title: "bPlus H2 Hanging", linkURL: "/products/mettler-toledo/bplus-H2-Hanging" },
+        { imageSrc: FreshBase_U2.src, altText: "FreshBase_U2 logo", title: "FreshBase U2", linkURL: "/products/mettler-toledo/freshbase-U2" },
+        { imageSrc: FreshBase_C2.src, altText: "FreshBase_C2 logo", title: "FreshBase C2", linkURL: "/products/mettler-toledo/freshbase-C2" },
+        { imageSrc: FreshBase_AI.src, altText: "FreshBase_AI logo", title: "FreshBase AI", linkURL: "/products/mettler-toledo/freshbase-AI" },
+        { imageSrc: bRite_Standard.src, altText: "bRite_Standard logo", title: "bRite Standard", linkURL: "/products/mettler-toledo/brite-Standard" },
+        { imageSrc: BBA231.src, altText: "BBA231 logo", title: "BBA231", linkURL: "/products/mettler-toledo/bba231" },
+        { imageSrc: FloorScale.src, altText: "FloorScale(PFA220 - ES) logo", title: "Floor Scale (PFA220 - ES)", linkURL: "/products/mettler-toledo/floor-scale-PFA220" },
+    ];
 
-                <div className="grid md:grid-cols-2 gap-8 items-start mb-12">
-                    <div>
-                        <Image
-                            src={MettlerToledo}
-                            alt="Mettler Toledo"
-                            className="rounded-lg w-full h-auto"
-                        />
-                    </div>
-                    <div className="space-y-6">
-                        <h2 className="text-2xl font-semibold text-black">What is Mettler Toledo?</h2>
-                        <p className="text-gray-600">
-                            Mettler Toledo is a global manufacturer specializing in precision instruments for use in laboratories, industrial, and food retailing environments. Their products range from balances, scales, and analyzers to advanced automated systems, ensuring accuracy and efficiency in measurement.
-                        </p>
-                    </div>
+    return (
+        <>
+            <div className="flex flex-col items-center m-3">
+                <h1 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                    Mettler Toledo
+                </h1>
+                <div className="mt-1.5 text-base leading-6 text-secondary-black text-center">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 </div>
 
-                <Tabs defaultValue="features" className="mb-12">
-                    <TabsList className="grid w-full grid-cols-3 bg-primary-blue text-white">
-                        <TabsTrigger value="features" className="max-md:text-xs">Features</TabsTrigger>
-                        <TabsTrigger value="applications" className="max-md:text-xs">Applications</TabsTrigger>
-                        <TabsTrigger value="benefits" className="max-md:text-xs">Benefits</TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="features">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Features</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-2">
-                                <p>• High precision weighing instruments for laboratory and industrial use</p>
-                                <p>• Advanced analytical instruments for chemical, pharmaceutical, and food industries</p>
-                                <p>• Automated systems for optimizing production processes</p>
-                                <p>• User-friendly software for data management and traceability</p>
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-                    <TabsContent value="applications">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Applications</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-2">
-                                <p>• Quality control in manufacturing industries</p>
-                                <p>• Precision measurements in research and development labs</p>
-                                <p>• Automated weighing systems in food retailing</p>
-                                <p>• Chemical analysis in pharmaceuticals and environmental testing</p>
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-                    <TabsContent value="benefits">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Benefits</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-2">
-                                <p>• Ensures accuracy and precision in critical measurements</p>
-                                <p>• Improves operational efficiency with automated solutions</p>
-                                <p>• Increases productivity and reduces human error</p>
-                                <p>• Provides real-time data and insights for better decision-making</p>
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-                </Tabs>
-
-                <section className="mb-12">
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">Why Choose Mettler Toledo?</h2>
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center">
-                                    <Scale className="w-5 h-5 mr-2 text-blue-500" />
-                                    Precision and Accuracy
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Mettler Toledo&apos;s instruments are known for their high precision, ensuring that even the smallest variations in measurements are accurately detected, which is critical in industries such as pharmaceuticals and research.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center">
-                                    <Settings className="w-5 h-5 mr-2 text-red-500" />
-                                    Advanced Automation
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                The company offers advanced automation systems that help streamline operations in manufacturing, reducing human error and increasing productivity.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center">
-                                    <Activity className="w-5 h-5 mr-2 text-green-500" />
-                                    Data Management and Traceability
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                With integrated software for data management, Mettler Toledo ensures that measurements are traceable, providing businesses with reliable data for compliance and quality control.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center">
-                                    <Thermometer className="w-5 h-5 mr-2 text-yellow-500" />
-                                    Versatility in Applications
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                From laboratory environments to industrial and food retail settings, Mettler Toledo’s products offer versatile solutions that can be adapted to a wide range of applications.
-                            </CardContent>
-                        </Card>
-                    </div>
-                </section>
-
-
-                <div className="text-center text-gray-600">
-                    <p>Learn more about our products at www.mt.com</p>
+                <div className="mt-10 w-[1200px] max-w-full mx-auto grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+                    {productMettler.map((image, index) => (
+                        <ProductsCard
+                            key={index}
+                            imageSrc={image.imageSrc}
+                            altText={image.altText}
+                            title={image.title}
+                            linkURL={image.linkURL}
+                        />
+                    ))}
                 </div>
             </div>
-        </div>
-    )
+        </>
+    );
 }

@@ -1,139 +1,50 @@
-import {  Package, Shield, BarChart, Sun } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import ProductsCard from "../../components/ProductsCard";
 
-import HoneyWell from "../../assets/product2.png";
-import Image from "next/image";
+import Voyager from "../../assets/Honeywell/1472G-voyager.jpg";
+import Genesis from "../../assets/Honeywell/genesis-7580g_800_600.png";
+import HH400 from "../../assets/Honeywell/HH400_01_large3.jpg";
+import HH660 from "../../assets/Honeywell/HH660.jpg";
+import HW1452G from "../../assets/Honeywell/Honeywell1452g5.jpg";
+import PM423 from "../../assets/Honeywell/PM423.png";
+import PX6I4 from "../../assets/Honeywell/PX6I4.png";
+import Scanner from "../../assets/Honeywell/Scanner-1452G.png";
+import Solaris from "../../assets/Honeywell/Solaris-7980.jpg";
 
-export default function Honeywell() {
+export default function honeywell() {
+    const productHoneywell = [
+        { imageSrc: Voyager.src, altText: "1472G Voyager logo", title: "1472G Voyager", linkURL: "/products/honeywell/1472g-voyager" },
+        { imageSrc: Genesis.src, altText: "Genesis 7580G logo", title: "Genesis 7580G", linkURL: "/products/honeywell/genesis-7580g" },
+        { imageSrc: HH400.src, altText: "HH400 logo", title: "HH400", linkURL: "/products/honeywell/hh400" },
+        { imageSrc: HH660.src, altText: "HH660 logo", title: "HH660", linkURL: "/products/honeywell/hh660" },
+        { imageSrc: HW1452G.src, altText: "HW1452G logo", title: "Honeywell 1452G", linkURL: "/products/honeywell/1452g5" },
+        { imageSrc: PM423.src, altText: "PM423 logo", title: "PM423", linkURL: "/products/honeywell/pm423" },
+        { imageSrc: PX6I4.src, altText: "PX6I4 logo", title: "PX6I4", linkURL: "/products/honeywell/px6I4" },
+        { imageSrc: Scanner.src, altText: "Scanner logo", title: "Scanner 1452g", linkURL: "/products/honeywell/scanner-1452g" },
+        { imageSrc: Solaris.src, altText: "Solaris 7980 logo", title: "Solaris 7980", linkURL: "/products/honeywell/solaris-7980" },
+    ];
+
     return (
-        <div className="min-h-screen bg-gradient-to-b py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-                <header className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-primary-blue mb-2">Honeywell</h1>
-                </header>
-
-                <div className="grid md:grid-cols-2 gap-8 items-start mb-12">
-                    <div>
-                        <Image
-                            src={HoneyWell}
-                            alt="Honeywell"
-                            className="rounded-lg w-full h-auto"
-                        />
-                    </div>
-                    <div className="space-y-6">
-                        <h2 className="text-2xl font-semibold text-black">What is Honeywell?</h2>
-                        <p className="text-gray-600">
-                            Honeywell is a global leader in technology and manufacturing, offering solutions in areas such as automation, energy efficiency, safety, and security. Their innovative technologies empower businesses across industries to enhance operational efficiency and sustainability.
-                        </p>
-                    </div>
+        <>
+            <div className="flex flex-col items-center m-3">
+                <h1 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                    Honeywell
+                </h1>
+                <div className="mt-1.5 text-base leading-6 text-secondary-black text-center">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                 </div>
 
-                <Tabs defaultValue="features" className="mb-12">
-                    <TabsList className="grid w-full grid-cols-3 bg-primary-blue text-white">
-                        <TabsTrigger value="features" className="max-md:text-xs">Features</TabsTrigger>
-                        <TabsTrigger value="industries" className="max-md:text-xs">Industries Served</TabsTrigger>
-                        <TabsTrigger value="benefits" className="max-md:text-xs">Benefits</TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="features">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Features</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-2">
-                                <p>• Advanced automation and control systems for industrial applications</p>
-                                <p>• Cutting-edge cybersecurity solutions to protect critical infrastructure</p>
-                                <p>• Energy-efficient products and systems to drive sustainability</p>
-                                <p>• Real-time data analytics to optimize performance and safety</p>
-                                <p>• Smart building technologies for efficient facility management</p>
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-                    <TabsContent value="industries">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Industries Served</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-2">
-                                <p>• Aerospace and Defense</p>
-                                <p>• Oil and Gas</p>
-                                <p>• Manufacturing and Industrial</p>
-                                <p>• Healthcare and Pharmaceuticals</p>
-                                <p>• Building and Facility Management</p>
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-                    <TabsContent value="benefits">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle>Benefits</CardTitle>
-                            </CardHeader>
-                            <CardContent className="space-y-2">
-                                <p>• Enhanced operational efficiency through automation</p>
-                                <p>• Improved sustainability with energy-efficient solutions</p>
-                                <p>• Increased safety and security with advanced monitoring systems</p>
-                                <p>• Real-time visibility and control over critical infrastructure</p>
-                                <p>• Cost reduction and optimized resource allocation</p>
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-                </Tabs>
-
-                <section className="mb-12">
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">Why Choose Honeywell?</h2>
-                    <div className="grid md:grid-cols-2 gap-6">
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center">
-                                    <Package className="w-5 h-5 mr-2 text-blue-500" />
-                                    Industry-Leading Automation Solutions
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Honeywell delivers cutting-edge automation technologies that optimize industrial operations, improve production output, and reduce downtime across a variety of sectors.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center">
-                                    <Shield className="w-5 h-5 mr-2 text-red-500" />
-                                    Unmatched Security and Cybersecurity
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Honeywell provides industry-leading security solutions, including physical and cybersecurity services, ensuring the protection of critical infrastructure and assets.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center">
-                                    <BarChart className="w-5 h-5 mr-2 text-green-500" />
-                                    Data-Driven Performance Optimization
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                With Honeywell&apos;s advanced analytics, businesses gain real-time insights into their operations, enabling data-driven decision-making and enhanced performance.
-                            </CardContent>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="flex items-center">
-                                    <Sun className="w-5 h-5 mr-2 text-yellow-500" />
-                                    Sustainability and Energy Efficiency
-                                </CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                Honeywell&apos;s energy-efficient solutions help businesses reduce their environmental footprint, lower energy costs, and meet sustainability goals.
-                            </CardContent>
-                        </Card>
-                    </div>
-                </section>
-
-
-                <div className="text-center text-gray-600">
-                    <p>Learn more about our products at www.honeywell.com</p>
+                <div className="mt-10 w-[1200px] max-w-full mx-auto grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+                    {productHoneywell.map((image, index) => (
+                        <ProductsCard
+                            key={index}
+                            imageSrc={image.imageSrc}
+                            altText={image.altText}
+                            title={image.title}
+                            linkURL={image.linkURL}
+                        />
+                    ))}
                 </div>
             </div>
-        </div>
-    )
+        </>
+    );
 }
