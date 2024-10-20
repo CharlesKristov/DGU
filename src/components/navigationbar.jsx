@@ -144,7 +144,7 @@ export default function NavigationBar() {
           <div className="absolute w-100 z-50 md:hidden" id="mobile-menu">
             <div className="space-y-1 px-2 pb-3 pt-2 bg-gray-800">
               <Link
-                href="#"
+                href="/#products"
                 className="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800"
               >
                 Products
@@ -156,25 +156,25 @@ export default function NavigationBar() {
                 Spareparts
               </Link>
               <Link
-                href="#"
+                href="/service-support"
                 className="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800"
               >
                 Service & Support
               </Link>
               <Link
-                href="#"
+                href="/activities"
                 className="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800"
               >
                 Activity
               </Link>
               <Link
-                href="#"
+                href="/about"
                 className="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800"
               >
                 About Us
               </Link>
               <Link
-                href="#"
+                href="/contact-us"
                 className="block rounded px-3 text-white pb-3 text-base font-medium text-gray-800"
               >
                 Contact Us
