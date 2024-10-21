@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             JOIN
                 stores s on a.store_id = s.id
             WHERE 
-                a.id = ${activityID?.toString()}; 
+                a.id = ${activityID?.toString()} and p.is_deleted = false; 
         `;      
             res.status(200).json(rows);
     } catch (error) {

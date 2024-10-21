@@ -24,36 +24,36 @@ export default function ActivityDetail() {
     
     const { data: session, status } = useSession();
     const [isAuthorized, setIsAuthorized] = useState(false);
-  
-    
+    const [showDeleteModal, setShowDeleteModal] = useState(false); // State to control modal
+    const [photoToDelete, setPhotoToDelete] = useState<PhotoData | null>(null); // Track which photo to delete
+
     useEffect(() => {
-            if (status === 'authenticated') {
+        if (status === 'authenticated') {
             if (session.user.role === 'admin') {
                 setIsAuthorized(true);
             } else {
-                router.push('/'); 
+                router.push('/');
                 signOut();
             }
         }
     }, [status, session, router]);
 
+    
+    
     // Fetch activity and photos from the API
     useEffect(() => {
         if (id) {
             fetchActivityDetail(id.toString());
         }
     }, [id]);
-    
-  
+
     if (status === 'loading') return <p className='items-center'>Loading...</p>;
-  
+
     if (!session) {
       router.push('/');
     }
   
     if (!isAuthorized) return <p>Checking authorization...</p>;
-
-    
 
     async function fetchActivityDetail(activityId: string) {
         try {
@@ -90,17 +90,15 @@ export default function ActivityDetail() {
 
     // Handle photo file upload
     const handlePhotoFileChange = async (index: number, file: File) => {
-        // Check if the file is valid
         if (!file) {
             console.error('No file selected');
             return;
         }
 
-        // Handle the file upload to blob storage
         const uploadedUrl = await uploadImageToBlob(file);
         if (uploadedUrl) {
             const updatedPhotos = [...photos];
-            updatedPhotos[index].photo_url = uploadedUrl; // Update photo URL after upload
+            updatedPhotos[index].photo_url = uploadedUrl;
             setPhotos(updatedPhotos);
         }
     };
@@ -108,8 +106,7 @@ export default function ActivityDetail() {
     const uploadImageToBlob = async (file: File) => {
         try {
             const formData = new FormData();
-            formData.append('image', file); // Ensure the field name matches what the server expects
-            console.log('FormData:', formData.get('image')); // Log the file to verify
+            formData.append('image', file);
 
             const response = await fetch(`/api/uploadImage`, {
                 method: 'POST',
@@ -121,28 +118,28 @@ export default function ActivityDetail() {
             }
 
             const data = await response.json();
-            return data.url; // Assume the server returns the uploaded image URL
+            return data.url;
         } catch (error) {
             console.error('Error uploading image:', error);
             return '';
         }
     };
 
+    // Show confirmation modal when attempting to delete
+    const handleConfirmDeletePhoto = (photo: PhotoData) => {
+        setPhotoToDelete(photo);
+        setShowDeleteModal(true);
+    };
 
-    // Handle deleting a photo
-    const handleDeletePhoto = async (photoId: string) => {
-        try {
-            const response = await fetch(`/api/photos/${photoId}`, {
-                method: 'DELETE',
-            });
-            if (response.ok) {
-                setPhotos(photos.filter((photo) => photo.photo_id !== photoId));
-            } else {
-                console.error('Failed to delete photo');
-            }
-        } catch (error) {
-            console.error('Error deleting photo:', error);
-        }
+    // Proceed with deletion after confirmation
+    const confirmDeletePhoto = () => {
+        if (!photoToDelete) return;
+
+        // Remove the photo from the photos array
+        const updatedPhotos = photos.filter((photo) => photo.photo_id !== photoToDelete.photo_id);
+        setPhotos(updatedPhotos);
+        setShowDeleteModal(false); // Close the modal after deletion
+        setPhotoToDelete(null); // Reset the selected photo
     };
 
     // Handle adding a new photo
@@ -150,24 +147,40 @@ export default function ActivityDetail() {
         setPhotos([...photos, { photo_id: '', photo_description: '', photo_url: '' }]);
     };
 
-    // Handle saving changes (updating existing photos)
+    // Handle saving changes 
     const handleSaveChanges = async () => {
         try {
-            const response = await fetch(`/api/activities/${id}/photos`, {
+            // Ensure the activity ID is available
+            if (!id) {
+                console.error("Activity ID is missing");
+                return;
+            }
+
+            const response = await fetch(`/api/activities/photos/${id}/save`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(photos),
+                body: JSON.stringify({
+                    photos,
+                    user: {
+                        email: session?.user.email,
+                        role: session?.user.role,
+                        id: session?.user.id
+                    },
+                }),
             });
+
             if (!response.ok) {
                 throw new Error('Failed to save changes');
             }
+
             alert('Changes saved successfully');
         } catch (error) {
             console.error('Error saving changes:', error);
         }
     };
+
 
     if (!activity) {
         return <div>Loading...</div>;
@@ -184,8 +197,8 @@ export default function ActivityDetail() {
                 <div className="mt-1.5 text-base leading-9 text-secondary-black text-center">
                     {activity.activity_description}
                 </div>
+                
 
-                {/* Photo Management Table */}
                 <div className="mt-8">
                     <h3 className="text-xl font-semibold mb-4">Manage Photos</h3>
                     <table className="min-w-full bg-white shadow-md rounded">
@@ -233,7 +246,7 @@ export default function ActivityDetail() {
                                     </td>
                                     <td className="py-2 px-4 text-center">
                                         <button
-                                            onClick={() => handleDeletePhoto(photo.photo_id)}
+                                            onClick={() => handleConfirmDeletePhoto(photo)}
                                             className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
                                         >
                                             Delete
@@ -257,7 +270,37 @@ export default function ActivityDetail() {
                     >
                         Save Changes
                     </button>
+                    {/* Back Button */}
+                    <button
+                        onClick={() => router.back()} // Navigates back to the previous page
+                        className="mt-4 ml-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+                    >
+                        Back
+                    </button>
                 </div>
+
+                {/* Confirmation modal */}
+                {showDeleteModal && (
+                    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
+                        <div className="bg-white p-4 rounded shadow-md">
+                            <p>Are you sure you want to delete this photo?</p>
+                            <div className="mt-4 flex justify-end">
+                                <button
+                                    onClick={confirmDeletePhoto}
+                                    className="bg-red-500 text-white px-4 py-2 rounded mr-2"
+                                >
+                                    Yes, delete
+                                </button>
+                                <button
+                                    onClick={() => setShowDeleteModal(false)}
+                                    className="bg-gray-300 px-4 py-2 rounded"
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
