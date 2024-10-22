@@ -9,6 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         `
             SELECT 
                 a.id AS activity_id,
+                s.brand_name,
                 s.store_name,
                 a.store_id,
                 a.activity_description,

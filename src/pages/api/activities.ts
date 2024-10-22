@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
         FROM 
             stores s
         JOIN 
-            activities a ON s.id = a.store_id
+            activities a ON s.id = a.store_id and a.is_deleted = false
         JOIN 
             photos p ON a.id = p.activity_id
         WHERE 

@@ -6,20 +6,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const { activityID } = req.query; // Get the activity ID from the URL
 
     if (req.method === 'PUT') {
-        const { photos, user } = req.body; // Extract photos and user from the body
+        const { photos, activity, user } = req.body; // Extract photos, activity, store, and user from the body
         if (!user || user.role !== "admin") {
             console.error("User is unauthorized");
             return res.status(401).json({ message: 'Unauthorized' });
         }
         try {
-            // 1. "Deactivate" (soft delete) existing photos by setting is_deleted = true
+            // 1. Update store details (brand_name, store_name)
+            await sql`
+                UPDATE stores
+                SET brand_name = ${activity.brand_name}, store_name = ${activity.store_name}, last_updated_by = ${user.id}, last_updated_at = NOW()
+                WHERE id = ${activity.store_id}
+            `;
+
+            // 2. Update activity description
+            await sql`
+                UPDATE activities
+                SET activity_description = ${activity.activity_description}, last_updated_by = ${user.id}, last_updated_at = NOW()
+                WHERE id = ${activityID?.toString()}
+            `;
+
+            // 3. "Deactivate" (soft delete) existing photos by setting is_deleted = true
             await sql`
                 UPDATE photos 
                 SET is_deleted = true, last_updated_by = ${user.id}, last_updated_at = NOW() 
                 WHERE activity_id = ${activityID?.toString()}
             `;
 
-            // 2. Insert or update photos
+            // 4. Insert or update photos
             for (const photo of photos) {
                 if (photo.photo_id) {
                     // Update existing photo (reactivate if it was marked as deleted)
@@ -37,10 +51,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 }
             }
 
-            return res.status(200).json({ message: 'Photos updated successfully' });
+            return res.status(200).json({ message: 'Store, activity, and photos updated successfully' });
         } catch (error) {
-            console.error('Error updating photos:', error);
-            return res.status(500).json({ message: 'Failed to update photos', error });
+            console.error('Error updating store, activity, and photos:', error);
+            return res.status(500).json({ message: 'Failed to update store, activity, and photos', error });
         }
     } else {
         return res.status(405).json({ message: 'Method Not Allowed' });

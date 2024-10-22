@@ -1,33 +1,24 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { signOut, useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 
-// Define the types for activity and photo data
+// Define the types for photo data
 interface PhotoData {
-    photo_id: string;
     photo_description: string;
     photo_url: string;
 }
 
-interface Activity {
-    activity_id: string;
-    store_id: string;
-    brand_name: string;
-    store_name: string;
-    activity_description: string;
-}
-
-export default function ActivityDetail() {
+export default function CreateActivity() {
     const router = useRouter();
-    const { id } = router.query; // Get the activity ID from the URL
-    const [activity, setActivity] = useState<Activity | null>(null);
-    const [photos, setPhotos] = useState<PhotoData[]>([]); // Array of PhotoData
-    
     const { data: session, status } = useSession();
     const [isAuthorized, setIsAuthorized] = useState(false);
-    const [showDeleteModal, setShowDeleteModal] = useState(false); // State to control modal
-    const [photoToDelete, setPhotoToDelete] = useState<PhotoData | null>(null); // Track which photo to delete
+    const [photos, setPhotos] = useState<PhotoData[]>([]); // Array of PhotoData
+    const [activity, setActivity] = useState({
+        brand_name: '',
+        store_name: '',
+        activity_description: '',
+    });
 
     useEffect(() => {
         if (status === 'authenticated') {
@@ -40,50 +31,13 @@ export default function ActivityDetail() {
         }
     }, [status, session, router]);
 
-    
-    
-    // Fetch activity and photos from the API
-    useEffect(() => {
-        if (id) {
-            fetchActivityDetail(id.toString());
-        }
-    }, [id]);
-
-    if (status === 'loading') return <p className='items-center'>Loading...</p>;
+    if (status === 'loading') return <p>Loading...</p>;
 
     if (!session) {
       router.push('/');
     }
   
     if (!isAuthorized) return <p>Checking authorization...</p>;
-
-    async function fetchActivityDetail(activityId: string) {
-        try {
-            const response = await fetch(`/api/activities/${activityId}`);
-            if (!response.ok) {
-                throw new Error('Failed to fetch activity details');
-            }
-            const data = await response.json();
-            if (data.length > 0) {
-                const activityData = {
-                    activity_id: data[0].activity_id,
-                    store_id: data[0].store_id,
-                    brand_name: data[0].brand_name,
-                    store_name: data[0].store_name,
-                    activity_description: data[0].activity_description,
-                };
-                const photosData = data.map((item: { photo_id: string; photo_description: string; photo_url: string; }) => ({
-                    photo_id: item.photo_id,
-                    photo_description: item.photo_description,
-                    photo_url: item.photo_url,
-                }));
-                setActivity(activityData);
-                setPhotos(photosData);
-            }
-        } catch (error) {
-            console.error('Error fetching activity details:', error);
-        }
-    }
 
     // Handle description change
     const handleDescriptionChange = (index: number, newDescription: string) => {
@@ -129,48 +83,21 @@ export default function ActivityDetail() {
         }
     };
 
-    // Show confirmation modal when attempting to delete
-    const handleConfirmDeletePhoto = (photo: PhotoData) => {
-        setPhotoToDelete(photo);
-        setShowDeleteModal(true);
-    };
-
-    // Proceed with deletion after confirmation
-    const confirmDeletePhoto = () => {
-        if (!photoToDelete) return;
-
-        // Remove the photo from the photos array
-        const updatedPhotos = photos.filter((photo) => photo.photo_id !== photoToDelete.photo_id);
-        setPhotos(updatedPhotos);
-        setShowDeleteModal(false); // Close the modal after deletion
-        setPhotoToDelete(null); // Reset the selected photo
-    };
-
     // Handle adding a new photo
     const handleAddPhoto = () => {
-        setPhotos([...photos, { photo_id: '', photo_description: '', photo_url: '' }]);
+        setPhotos([...photos, { photo_description: '', photo_url: '' }]);
     };
 
-    // Handle saving changes 
-    const handleSaveChanges = async () => {
+    // Handle saving new activity
+    const handleSaveActivity = async () => {
         try {
-            if (!id) {
-                console.error("Activity ID is missing");
-                return;
-            }
-    
-            const response = await fetch(`/api/activities/${id}/save`, {
-                method: 'PUT',
+            const response = await fetch(`/api/activities/create`, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    activity: {
-                        store_id: activity?.store_id,
-                        brand_name: activity?.brand_name,
-                        store_name: activity?.store_name,
-                        activity_description: activity?.activity_description,
-                    },
+                    activity,
                     photos,
                     user: {
                         email: session?.user.email,
@@ -179,39 +106,32 @@ export default function ActivityDetail() {
                     },
                 }),
             });
-    
-            if (!response.ok) {
-                throw new Error('Failed to save changes');
-            }
-    
-            alert('Changes saved successfully');
-            router.push('/admin/manage-activities'); // Redirect to activities list or other page after creation
 
+            if (!response.ok) {
+                throw new Error('Failed to create activity');
+            }
+
+            alert('Activity created successfully');
+            router.push('/admin/manage-activities'); // Redirect to activities list or other page after creation
         } catch (error) {
-            console.error('Error saving changes:', error);
+            console.error('Error creating activity:', error);
         }
     };
-    
-
-
-    if (!activity) {
-        return <div>Loading...</div>;
-    }
 
     return (
         <div className="min-h-screen bg-gradient-to-b py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl font-bold mb-4">Create New Activity</h2>
+
                 <div className="mt-2">
                     {/* Label for Brand Name */}
                     <label className="block text-sm font-medium text-gray-700">Brand Name</label>
                     <input
                         type="text"
                         value={activity.brand_name}
-                        onChange={(e) =>
-                            setActivity((prev) => prev ? { ...prev, brand_name: e.target.value } : null)
-                        }
+                        onChange={(e) => setActivity({ ...activity, brand_name: e.target.value })}
                         className="text-3xl font-bold leading-10 text-primary-black text-start w-full border p-2"
-                        placeholder="Edit Brand Name"
+                        placeholder="Enter Brand Name"
                     />
                 </div>
 
@@ -221,11 +141,9 @@ export default function ActivityDetail() {
                     <input
                         type="text"
                         value={activity.store_name}
-                        onChange={(e) =>
-                            setActivity((prev) => prev ? { ...prev, store_name: e.target.value } : null)
-                        }
+                        onChange={(e) => setActivity({ ...activity, store_name: e.target.value })}
                         className="text-3xl font-bold leading-10 text-primary-blue text-start w-full border p-2"
-                        placeholder="Edit Store Name"
+                        placeholder="Enter Store Name"
                     />
                 </div>
 
@@ -235,24 +153,21 @@ export default function ActivityDetail() {
                     <textarea
                         value={activity.activity_description}
                         onChange={(e) =>
-                            setActivity((prev) => prev ? { ...prev, activity_description: e.target.value } : null)
+                            setActivity({ ...activity, activity_description: e.target.value })
                         }
                         className="mt-1.5 text-base leading-9 text-secondary-black text-start w-full border p-2"
-                        placeholder="Edit Activity Description"
+                        placeholder="Enter Activity Description"
                     />
                 </div>
 
-                
-
                 <div className="mt-8">
-                    <h3 className="text-xl font-semibold mb-4">Manage Photos</h3>
+                    <h3 className="text-xl font-semibold mb-4">Add Photos</h3>
                     <table className="min-w-full bg-white shadow-md rounded">
                         <thead>
                             <tr>
                                 <th className="py-2 px-4">#</th>
                                 <th className="py-2 px-4">Description</th>
                                 <th className="py-2 px-4">Photo</th>
-                                <th className="py-2 px-4">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -289,14 +204,6 @@ export default function ActivityDetail() {
                                             />
                                         </div>
                                     </td>
-                                    <td className="py-2 px-4 text-center">
-                                        <button
-                                            onClick={() => handleConfirmDeletePhoto(photo)}
-                                            className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
-                                        >
-                                            Delete
-                                        </button>
-                                    </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -310,11 +217,12 @@ export default function ActivityDetail() {
                     </button>
 
                     <button
-                        onClick={handleSaveChanges}
+                        onClick={handleSaveActivity}
                         className="mt-4 ml-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
                     >
-                        Save Changes
+                        Save Activity
                     </button>
+
                     {/* Back Button */}
                     <button
                         onClick={() => router.back()} // Navigates back to the previous page
@@ -323,29 +231,6 @@ export default function ActivityDetail() {
                         Back
                     </button>
                 </div>
-
-                {/* Confirmation modal */}
-                {showDeleteModal && (
-                    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
-                        <div className="bg-white p-4 rounded shadow-md">
-                            <p>Are you sure you want to delete this photo?</p>
-                            <div className="mt-4 flex justify-end">
-                                <button
-                                    onClick={confirmDeletePhoto}
-                                    className="bg-red-500 text-white px-4 py-2 rounded mr-2"
-                                >
-                                    Yes, delete
-                                </button>
-                                <button
-                                    onClick={() => setShowDeleteModal(false)}
-                                    className="bg-gray-300 px-4 py-2 rounded"
-                                >
-                                    Cancel
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                )}
             </div>
         </div>
     );
