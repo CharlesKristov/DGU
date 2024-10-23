@@ -199,6 +199,180 @@ export default function ServiceSupport() {
                 zoom={selectedLocation ? 10 : 5}
                 selectedLocation={selectedLocation}
             />
+            
+            {/* City Directory */}
+            <div className="w-full mt-8 text-primary-blue p-4 mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-8 gap-4 text-sm">
+                    <div>
+                        <div className="font-bold mb-2 text-xl">Jabodetabek</div>
+                        <ul className="text-black space-y-1">
+                            <li>Jakarta</li>
+                            <li>Bogor</li>
+                            <li>Depok</li>
+                            <li>Tangerang</li>
+                            <li>Bekasi</li>
+                        </ul>
+                        <div className="font-bold mb-2 text-xl">Jawa Barat</div>
+                        <ul className="text-black space-y-1">
+                            <li>Cikarang</li>
+                            <li>Cibinong</li>
+                            <li>Karawang</li>
+                            <li>Bandung</li>
+                            <li>Ciamis</li>
+                            <li>Cianjur</li>
+                            <li>Indramayu</li>
+                            <li>Cirebon</li>
+                        </ul>
+                    </div>
+                    <div className="max-sm:-mt-9">
+                        <ul className="text-black space-y-1">
+                            <li>Ngamprah</li>
+                            <li>Kuningan</li>
+                            <li>Majalengka</li>
+                            <li>Parigi</li>
+                            <li>Purwakarta</li>
+                            <li>Subang</li>
+                            <li>Sumedang</li>
+                            <li>Singaparna</li>
+                            <li>Banjar</li>
+                            <li>Ciamis</li>
+                            <li>Sukabumi</li>
+                            <li>Tasikmalaya</li>
+                        </ul>
+                        <div className="font-bold mb-2 text-xl">Jawa Timur</div>
+                        <ul className="text-black space-y-1">
+                            <li>Surabaya</li>
+                            <li>Sidoarjo</li>
+                        </ul>
+                    </div>
+                    <div className="max-sm:-mt-9">
+                        <ul className="text-black space-y-1">
+                            <li>Mojokerto</li>
+                            <li>Pasuruan</li>
+                            <li>Probolinggo</li>
+                            <li>Batu</li>
+                            <li>Blitar</li>
+                            <li>Kediri</li>
+                            <li>Madiun</li>
+                            <li>Bangkalan</li>
+                            <li>Banyuwangi</li>
+                            <li>Bojonegoro</li>
+                            <li>Bondowoso</li>
+                            <li>Gresik</li>
+                            <li>Jember</li>
+                            <li>Jombang</li>
+                            <li>Pamekasan</li>
+                            <li>Lumajang</li>
+                        </ul>
+                    </div>
+                    <div className="max-sm:-mt-9">
+                        <ul className="text-black space-y-1">
+                            <li>Caruban</li>
+                            <li>Magetan</li>
+                            <li>Kepanjen</li>
+                            <li>Mojosari</li>
+                            <li>Ngajuk</li>
+                            <li>Ngawi</li>
+                            <li>Pacitan</li>
+                            <li>Pamekasan</li>
+                            <li>Bangil</li>
+                            <li>Ponorogo</li>
+                            <li>Kraksan</li>
+                            <li>Sampan</li>
+                            <li>Situbondo</li>
+                            <li>Sumenep</li>
+                            <li>Trenggalek</li>
+                            <li>Tuban</li>
+                            <li>Tulungagung</li>
+                        </ul>
+                    </div>
+                    <hr className="col-span-4 lg:hidden max-sm:hidden border-t border-primary-blue my-4" />
+                    <div>
+                        <h4 className="font-bold mb-2 text-xl">Jawa Tengah</h4>
+                        <ul className="text-black space-y-1">
+                            <li>Solo</li>
+                            <li>Yogyakarta</li>
+                            <li>Semarang</li>
+                            <li>Magelang</li>
+                            <li>Pekalongan</li>
+                            <li>Salatiga</li>
+                            <li>Pati</li>
+                            <li>Banjarnegara</li>
+                            <li>Purwokerto</li>
+                            <li>Batang</li>
+                            <li>Blora</li>
+                            <li>Boyolali</li>
+                            <li>Brebes</li>
+                            <li>Demak</li>
+                            <li>Purwodadi</li>
+                            <li>Jepara</li>
+                        </ul>
+                    </div>
+                    <div className="max-sm:-mt-9">
+                        <ul className="text-black space-y-1">
+                            <li>Karanganyar</li>
+                            <li>Kebumen</li>
+                            <li>Kendal</li>
+                            <li>Klaten</li>
+                            <li>Kudus</li>
+                            <li>Magelang</li>
+                            <li>Pati</li>
+                            <li>Pekalongan</li>
+                            <li>Pemalang</li>
+                            <li>Purbalingga</li>
+                            <li>Purworejo</li>
+                            <li>Rembang</li>
+                            <li>Ungaran</li>
+                            <li>Sragen</li>
+                            <li>Sukoharjo</li>
+                            <li>Slawi</li>
+                            <li>Tegal</li>
+                            <li>Temanggung</li>
+                        </ul>
+                    </div>
+                    <div className="max-sm:-mt-9">
+                        <ul className="text-black space-y-1">
+                            <li>Wonogiri</li>
+                            <li>Wonosobo</li>
+                        </ul>
+                        <h4 className="font-bold mt-4 mb-2 text-xl">Bali</h4>
+                        <ul className="text-black space-y-1">
+                            <li>Denpasar</li>
+                            <li>Badung</li>
+                            <li>Bangli</li>
+                            <li>Buleleng</li>
+                            <li>Gianyar</li>
+                            <li>Negara</li>
+                            <li>Amlapura</li>
+                            <li>Semarapura</li>
+                            <li>Tabanan</li>
+                        </ul>
+                        <h4 className="font-bold mt-4 mb-2 text-xl">Batam</h4>
+                        <ul className="text-black space-y-1">
+                            <li>Kota Batam</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-bold mb-2 text-xl">Sumatera</h4>
+                        <ul className="text-black space-y-1">
+                            <li>Lampung</li>
+                            <li>Palembang</li>
+                            <li>Pekanbaru</li>
+                            <li>Medan</li>
+                        </ul>
+                        <h4 className="font-bold mt-4 mb-2 text-xl">Kalimantan</h4>
+                        <ul className="text-black space-y-1">
+                            <li>Samarinda</li>
+                            <li>Balikpapan</li>
+                        </ul>
+                        <h4 className="font-bold mt-4 mb-2 text-xl">Sulawesi</h4>
+                        <ul className="text-black space-y-1">
+                            <li>Makassar</li>
+                            <li>Manado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
