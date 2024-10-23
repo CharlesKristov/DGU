@@ -13,8 +13,8 @@ const ActivityCard = ({ brandName, storeName, imageSrc, href }) => {
                     src={imageSrc}
                     alt={`${storeName}`} 
                     className="absolute inset-0 w-full h-full object-cover"
-                    width={"100"}
-                    height={"100"}
+                    width={"1000"}
+                    height={"1000"}
                 />
                 <div className="absolute inset-0 bg-black opacity-25" />
                 <div className="absolute inset-0 p-6 flex flex-col justify-between">

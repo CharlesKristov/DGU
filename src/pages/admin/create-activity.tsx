@@ -7,6 +7,7 @@ import { useSession, signOut } from 'next-auth/react';
 interface PhotoData {
     photo_description: string;
     photo_url: string;
+    photo_uploaded: boolean; // Added to track whether the image was uploaded or entered via URL
 }
 
 export default function CreateActivity() {
@@ -34,9 +35,9 @@ export default function CreateActivity() {
     if (status === 'loading') return <p>Loading...</p>;
 
     if (!session) {
-      router.push('/');
+        router.push('/');
     }
-  
+
     if (!isAuthorized) return <p>Checking authorization...</p>;
 
     // Handle description change
@@ -57,8 +58,17 @@ export default function CreateActivity() {
         if (uploadedUrl) {
             const updatedPhotos = [...photos];
             updatedPhotos[index].photo_url = uploadedUrl;
+            updatedPhotos[index].photo_uploaded = true; // Set flag to indicate the image was uploaded
             setPhotos(updatedPhotos);
         }
+    };
+
+    // Handle image URL change
+    const handlePhotoUrlChange = (index: number, newUrl: string) => {
+        const updatedPhotos = [...photos];
+        updatedPhotos[index].photo_url = newUrl;
+        updatedPhotos[index].photo_uploaded = false; // Set flag to indicate the URL was manually entered
+        setPhotos(updatedPhotos);
     };
 
     const uploadImageToBlob = async (file: File) => {
@@ -85,7 +95,13 @@ export default function CreateActivity() {
 
     // Handle adding a new photo
     const handleAddPhoto = () => {
-        setPhotos([...photos, { photo_description: '', photo_url: '' }]);
+        setPhotos([...photos, { photo_description: '', photo_url: '', photo_uploaded: false }]);
+    };
+
+    // Handle deleting a photo
+    const handleDeletePhoto = (index: number) => {
+        const updatedPhotos = photos.filter((_, photoIndex) => photoIndex !== index);
+        setPhotos(updatedPhotos);
     };
 
     // Handle saving new activity
@@ -168,6 +184,7 @@ export default function CreateActivity() {
                                 <th className="py-2 px-4">#</th>
                                 <th className="py-2 px-4">Description</th>
                                 <th className="py-2 px-4">Photo</th>
+                                <th className="py-2 px-4">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -202,7 +219,22 @@ export default function CreateActivity() {
                                                 }
                                                 className="border p-1 w-full"
                                             />
+                                            <input
+                                                type="text"
+                                                value={photo.photo_url}
+                                                onChange={(e) => handlePhotoUrlChange(index, e.target.value)}
+                                                placeholder="Enter image URL"
+                                                className="border p-1 w-full ml-2"
+                                            />
                                         </div>
+                                    </td>
+                                    <td className="py-2 px-4 text-center">
+                                        <button
+                                            onClick={() => handleDeletePhoto(index)}
+                                            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                                        >
+                                            Delete
+                                        </button>
                                     </td>
                                 </tr>
                             ))}

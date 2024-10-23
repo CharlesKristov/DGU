@@ -8,6 +8,8 @@ interface PhotoData {
     photo_id: string;
     photo_description: string;
     photo_url: string;
+    photo_uploaded: boolean; // Added to track whether the image was uploaded or entered via URL
+
 }
 
 interface Activity {
@@ -106,6 +108,13 @@ export default function ActivityDetail() {
             setPhotos(updatedPhotos);
         }
     };
+    // Handle image URL change
+    const handlePhotoUrlChange = (index: number, newUrl: string) => {
+        const updatedPhotos = [...photos];
+        updatedPhotos[index].photo_url = newUrl;
+        updatedPhotos[index].photo_uploaded = false; // Set flag to indicate the URL was manually entered
+        setPhotos(updatedPhotos);
+    };
 
     const uploadImageToBlob = async (file: File) => {
         try {
@@ -148,7 +157,7 @@ export default function ActivityDetail() {
 
     // Handle adding a new photo
     const handleAddPhoto = () => {
-        setPhotos([...photos, { photo_id: '', photo_description: '', photo_url: '' }]);
+        setPhotos([...photos, { photo_id: '', photo_description: '', photo_url: '', photo_uploaded: false }]);
     };
 
     // Handle saving changes 
@@ -286,6 +295,13 @@ export default function ActivityDetail() {
                                                     handlePhotoFileChange(index, e.target.files[0])
                                                 }
                                                 className="border p-1 w-full"
+                                            />
+                                            <input
+                                                type="text"
+                                                value={photo.photo_url}
+                                                onChange={(e) => handlePhotoUrlChange(index, e.target.value)}
+                                                placeholder="Enter image URL"
+                                                className="border p-1 w-full ml-2"
                                             />
                                         </div>
                                     </td>
