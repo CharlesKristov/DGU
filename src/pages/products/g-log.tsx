@@ -1,22 +1,18 @@
 import ProductsCard from "../../components/ProductsCard";
 
-import CD from "../../assets/Eutron/CD-1.jpg";
-import CustomerDisplay from "../../assets/Eutron/Customer-Display.jpg";
-import ECR100 from "../../assets/Eutron/ECR-100.png";
-import ER220 from "../../assets/Eutron/electronic-cash-register_ER-220.jpg";
-import ER260 from "../../assets/Eutron/ER-260_1.jpg";
-import NewCashDraw from "../../assets/Eutron/New-cash-draw(2021).jpg";
-import WISE158 from "../../assets/Eutron/WISE_158.jpg";
+import GL01 from "../../assets/G-Log/GL01.png";
+import GL01Wifi from "../../assets/G-Log/GL01W.png";
+import GL02 from "../../assets/G-Log/GL02.png";
+import GL02Wifi from "../../assets/G-Log/GL02W.png";
+import GLOG8 from "../../assets/G-Log/GLOG8.jpg";
 
 export default function Glog() {
     const productGlog = [
-        { imageSrc: CD.src, altText: "CD logo", title: "CD", linkURL: "/products/Glog/cd" },
-        { imageSrc: CustomerDisplay.src, altText: "Customer Display logo", title: "Customer Display", linkURL: "/products/Glog/customer-display" },
-        { imageSrc: ECR100.src, altText: "ECR100 logo", title: "ECR100", linkURL: "/products/Glog/ecr100" },
-        { imageSrc: ER220.src, altText: "ER220 logo", title: "ER220", linkURL: "/products/Glog/er220" },
-        { imageSrc: ER260.src, altText: "ER260 logo", title: "ER260", linkURL: "/products/Glog/er260" },
-        { imageSrc: NewCashDraw.src, altText: "New Cash Draw logo", title: "New Cash Draw", linkURL: "/products/Glog/new-cash-draw" },
-        { imageSrc: WISE158.src, altText: "WISE158 logo", title: "WISE158", linkURL: "/products/Glog/wise158" },
+        { imageSrc: GL01.src, altText: "GL01 logo", title: "GL01", linkURL: "/products/glog/gl01" },
+        { imageSrc: GL01Wifi.src, altText: "GL01W logo", title: "GL01 Wifi", linkURL: "/products/glog/gl01w" },
+        { imageSrc: GL02.src, altText: "GL02 logo", title: "GL02", linkURL: "/products/glog/gl02" },
+        { imageSrc: GL02Wifi.src, altText: "GL02W logo", title: "GL02 Wifi", linkURL: "/products/glog/gl02w" },
+        { imageSrc: GLOG8.src, altText: "GLOG8 logo", title: "GLOG8", linkURL: "/products/glog/glog8" },
     ];
 
     return (
