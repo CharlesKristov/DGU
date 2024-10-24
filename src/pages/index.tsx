@@ -341,7 +341,7 @@ export default function Home() {
                         News
                     </h2>
                 </div>
-                <Carousel className="w-3/5 mt-12" opts={OPTIONS}>
+                <Carousel className="w-3/4 mt-12 max-md:max-w-full" opts={OPTIONS}>
                     <CarouselContent>
                         {News.map((news, index) => (
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
@@ -363,8 +363,6 @@ export default function Home() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
                 </Carousel>
             </div>
 
@@ -381,7 +379,7 @@ export default function Home() {
                                     <div className="flex items-center self-start mt-2 text-base font-light leading-6">
                                         <p className="self-stretch my-auto text-stone-500">
                                             Haven&apos;t found what you&apos;re looking for?
-                                            <a href="https://www.linkedin.com/in/benedictaurel/" target="_black" className="self-stretch my-auto text-sky-600 ml-1">
+                                            <a href="/contact-us" className="self-stretch my-auto text-sky-600 ml-1">
                                                 Contact Us
                                             </a>
                                         </p>

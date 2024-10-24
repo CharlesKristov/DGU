@@ -370,6 +370,10 @@ export default function ServiceSupport() {
                             <li>Makassar</li>
                             <li>Manado</li>
                         </ul>
+                        <h4 className="font-bold mt-4 mb-2 text-xl">NTB</h4>
+                        <ul className="text-black space-y-1">
+                            <li>Mataram</li>
+                        </ul>
                     </div>
                 </div>
             </div>
