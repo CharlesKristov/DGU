@@ -22,6 +22,7 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
                 SELECT MIN(created_at) 
                 FROM photos 
                 WHERE activity_id = a.id
+                and is_deleted = false
             )
         ORDER BY 
             a.created_at DESC;  -- Order by the activity's created_at date
