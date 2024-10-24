@@ -104,7 +104,7 @@ export default function NavigationBar() {
                 </div>
 
                 <div className="flex space-x-4 justify-center text-center pl-3">
-                  <Link href={"#"} className="relative rounded-md bg-gray-700 px-2 py-2 text-white text-sm font-small text-gray-600 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:bg-black before:scale-x-0 before:origin-left before:transition before:duration-300 hover:bg-gray-600 active:bg-gray-800">
+                  <Link href={"/request-form"} className="relative rounded-md bg-gray-700 px-2 py-2 text-white text-sm font-small text-gray-600 no-underline before:absolute before:bottom-0 before:left-0 before:w-full before:bg-black before:scale-x-0 before:origin-left before:transition before:duration-300 hover:bg-gray-600 active:bg-gray-800">
                     Request Form
                   </Link>
                 </div>

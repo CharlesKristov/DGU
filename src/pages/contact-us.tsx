@@ -25,11 +25,12 @@ export default function ContactUs() {
             return;
         }
     
-        const recipientEmail = 'djony@dutaglobalindo.com';
+        const recipientEmail = 'djony@dutaglobalindo.com'
+        const ccEmail = 'ari@dutaglobalindo.com'
         const subject = `${formData.subject}`;
         const body = `From: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
         
-        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&cc=${encodeURIComponent(ccEmail)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
         window.open(gmailUrl, '_blank');
         
         setFormData({
