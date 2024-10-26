@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Autoplay from "embla-carousel-autoplay";
 import { EmblaOptionsType } from 'embla-carousel'
 
@@ -5,9 +6,7 @@ import { Card, CardContent, CardDescription } from "@/components/ui/card";
 import {
     Carousel,
     CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
+    CarouselItem
 } from "@/components/ui/carousel"
 import {
     Accordion,
@@ -379,9 +378,10 @@ export default function Home() {
                                     <div className="flex items-center self-start mt-2 text-base font-light leading-6">
                                         <p className="self-stretch my-auto text-stone-500">
                                             Haven&apos;t found what you&apos;re looking for?
-                                            <a href="/contact-us" className="self-stretch my-auto text-sky-600 ml-1">
+                                            <Link href={"/contact-us"} className="self-stretch my-auto text-sky-600 ml-1">
                                                 Contact Us
-                                            </a>
+                                            </Link>
+                                            
                                         </p>
                                     </div>
                                 </div>
@@ -403,7 +403,8 @@ export default function Home() {
 
             {/* Whatsapp Floating Button */}
             <a href="https://api.whatsapp.com/send/?phone=6281287067575&text&type=phone_number&app_absent=0" target="_blank" className="wa text-decoration-none fixed bottom-8 right-8 z-50 bg-emerald-500 border-emerald-500 border-[10px] align-center text-3xl rounded-full">
-                <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/6bf46f2c5ca1959c117314473aa3d3413ef7facec08211e2313034ae214b0ccc?placeholderIfAbsent=true&apiKey=c0d3c16742ae4f458a4da43a0d02c813" />
+                <img alt="whatsapp logo" src="https://cdn.builder.io/api/v1/image/assets/TEMP/6bf46f2c5ca1959c117314473aa3d3413ef7facec08211e2313034ae214b0ccc?placeholderIfAbsent=true&apiKey=c0d3c16742ae4f458a4da43a0d02c813" />
+                {/* <Image alt="whatsapp logo" width={"300"} height={"300"} src={"https://cdn.builder.io/api/v1/image/assets/TEMP/6bf46f2c5ca1959c117314473aa3d3413ef7facec08211e2313034ae214b0ccc?placeholderIfAbsent=true&apiKey=c0d3c16742ae4f458a4da43a0d02c813"}/> */}
             </a>
         </>
     );

@@ -27,6 +27,12 @@ const nextConfig = {
         port: '',
         pathname: '/**', // This allows all paths under picsum.photos
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.builder.io', // Add this line
+        port: '',
+        pathname: '/**', // This allows all paths under picsum.photos
+      },
     ],
 
   },

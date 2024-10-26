@@ -13,7 +13,7 @@ export default function RequestForm() {
         description: '',
         documentation: '',
     })
-    const [file, setFile] = useState<File | null>(null)
+    const [, setFile] = useState<File | null>(null)
 
     useEffect(() => {
         const randomTicket = Math.random().toString(36).substring(2, 7).toUpperCase()
