@@ -13,7 +13,7 @@ export default function RequestForm() {
         description: '',
         documentation: '',
     })
-    const [, setFile] = useState<File | null>(null)
+    const [file, setFile] = useState<File | null>(null)
 
     useEffect(() => {
         const randomTicket = Math.random().toString(36).substring(2, 7).toUpperCase()
@@ -24,6 +24,7 @@ export default function RequestForm() {
         const { name, value } = e.target
         setFormData(prev => ({ ...prev, [name]: value }))
     }
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -55,6 +56,7 @@ ${formData.documentation}
             description: '',
             documentation: '',
         })
+        setFile(file)
         setFile(null)
     }
 
