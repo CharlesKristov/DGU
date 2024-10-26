@@ -14,17 +14,23 @@ export default function ER260s() {
                 </header>
 
                 <div className="grid md:grid-cols-2 gap-8 items-start mb-12">
-                    <div>
+                    <div className = "flex justify-center">
                         <Image
                             src={ER260}
                             alt="ER260"
-                            className="rounded-lg w-3/5 h-auto aspect-square"
+                            className="rounded-lg w-3/5 h-auto w-auto"
                         />
                     </div>
                     <div className="space-y-6">
                         <h2 className="text-2xl font-semibold text-black">What is ER260?</h2>
                         <p className="text-gray-600">
-                            Honeywell is a global leader in technology and manufacturing, offering solutions in areas such as automation, energy efficiency, safety, and security. Their innovative technologies empower businesses across industries to enhance operational efficiency and sustainability.
+                            Eutron Hunan Information Equipment Co., Ltd., started operation in China in 1998 as a fully owned subsidiary of an Europe-based company. It is managed by a team of managerial professionals and technical experts who owns more than ten years of experience in the industry of retail technology.
+                        </p>
+                        <p className="text-gray-600">
+                            EUTRON designs, produces, and markets cash registers, electronic scales, POS systems and software for the complete automation of sales outlets. Wide range of products and accessories, competitive price.
+                        </p>
+                        <p className="text-gray-600">
+                            EUTRON is especially concentrated on fiscal cash register design and manufacturing for various markets. These products are featured with technologies of state-of-art, high reliability, convenient functions and cost-effectiveness.
                         </p>
                     </div>
                 </div>
@@ -80,7 +86,7 @@ export default function ER260s() {
                 </Tabs>
 
                 <section className="mb-12">
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">Why Choose Honeywell?</h2>
+                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">Why Choose Eutron?</h2>
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card>
                             <CardHeader>
@@ -90,7 +96,7 @@ export default function ER260s() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                Honeywell delivers cutting-edge automation technologies that optimize industrial operations, improve production output, and reduce downtime across a variety of sectors.
+                                Eutron delivers cutting-edge automation technologies that optimize industrial operations, improve production output, and reduce downtime across a variety of sectors.
                             </CardContent>
                         </Card>
                         <Card>
@@ -101,7 +107,7 @@ export default function ER260s() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                Honeywell provides industry-leading security solutions, including physical and cybersecurity services, ensuring the protection of critical infrastructure and assets.
+                                Eutron provides industry-leading security solutions, including physical and cybersecurity services, ensuring the protection of critical infrastructure and assets.
                             </CardContent>
                         </Card>
                         <Card>
@@ -112,7 +118,7 @@ export default function ER260s() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                With Honeywell&apos;s advanced analytics, businesses gain real-time insights into their operations, enabling data-driven decision-making and enhanced performance.
+                                With Eutron&apos;s advanced analytics, businesses gain real-time insights into their operations, enabling data-driven decision-making and enhanced performance.
                             </CardContent>
                         </Card>
                         <Card>
@@ -123,7 +129,7 @@ export default function ER260s() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                Honeywell&apos;s energy-efficient solutions help businesses reduce their environmental footprint, lower energy costs, and meet sustainability goals.
+                                Eutron&apos;s energy-efficient solutions help businesses reduce their environmental footprint, lower energy costs, and meet sustainability goals.
                             </CardContent>
                         </Card>
                     </div>
@@ -131,7 +137,7 @@ export default function ER260s() {
 
 
                 <div className="text-center text-gray-600">
-                    <p>Learn more about our products at www.honeywell.com</p>
+                    <p>Learn more about our products at www.Eutron.com</p>
                 </div>
             </div>
         </div>

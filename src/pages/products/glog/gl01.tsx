@@ -15,17 +15,22 @@ export default function GL01s() {
                 </header>
 
                 <div className="grid md:grid-cols-2 gap-8 items-start mb-12">
-                    <div>
+                    <div className = "flex justify-center">
                         <Image
                             src={GL01}
                             alt="GL01"
-                            className="rounded-lg w-3/5 h-auto aspect-square"
+                            className="rounded-lg w-3/5 h-auto w-auto"
                         />
                     </div>
                     <div className="space-y-6">
                         <h2 className="text-2xl font-semibold text-black">What is GL01?</h2>
                         <p className="text-gray-600">
-                            Honeywell is a global leader in technology and manufacturing, offering solutions in areas such as automation, energy efficiency, safety, and security. Their innovative technologies empower businesses across industries to enhance operational efficiency and sustainability.
+                        G-Log is a device that functions to capture data sent between the Cashier/POS/Cash Register computer and the printer which has an interface: USB, Serial, Parallel, LAN, The recorded data will then be stored on storage media which will then be sent to the server via mobile internet or WiFi.
+                        </p>
+                        <p className="text-gray-600">
+                        G-Log will not interfere with the activities of the Cashier/POS/Cash Register computer and printer even if G-Log is damaged or turned off.                        </p>
+                        <p className="text-gray-600">
+                        G-Log is equipped with an alarm and will automatically send notifications of device status and other technical support data to the server if conditions change on the device.
                         </p>
                         <Link href="/GLOG/GL01-TP.pdf" rel="noopener noreferrer" target="_blank">
                             <button className="brochure bg-primary-blue text-white px-4 py-2 rounded-lg mt-3">
@@ -89,7 +94,7 @@ export default function GL01s() {
                 </Tabs>
 
                 <section className="mb-12">
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">Why Choose Honeywell?</h2>
+                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">Why Choose G-Log?</h2>
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card>
                             <CardHeader>
@@ -99,7 +104,7 @@ export default function GL01s() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                Honeywell delivers cutting-edge automation technologies that optimize industrial operations, improve production output, and reduce downtime across a variety of sectors.
+                                G-Log delivers cutting-edge automation technologies that optimize industrial operations, improve production output, and reduce downtime across a variety of sectors.
                             </CardContent>
                         </Card>
                         <Card>
@@ -110,7 +115,7 @@ export default function GL01s() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                Honeywell provides industry-leading security solutions, including physical and cybersecurity services, ensuring the protection of critical infrastructure and assets.
+                                G-Log provides industry-leading security solutions, including physical and cybersecurity services, ensuring the protection of critical infrastructure and assets.
                             </CardContent>
                         </Card>
                         <Card>
@@ -121,7 +126,7 @@ export default function GL01s() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                With Honeywell&apos;s advanced analytics, businesses gain real-time insights into their operations, enabling data-driven decision-making and enhanced performance.
+                                With G-Log&apos;s advanced analytics, businesses gain real-time insights into their operations, enabling data-driven decision-making and enhanced performance.
                             </CardContent>
                         </Card>
                         <Card>
@@ -132,7 +137,7 @@ export default function GL01s() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent>
-                                Honeywell&apos;s energy-efficient solutions help businesses reduce their environmental footprint, lower energy costs, and meet sustainability goals.
+                                G-Log&apos;s energy-efficient solutions help businesses reduce their environmental footprint, lower energy costs, and meet sustainability goals.
                             </CardContent>
                         </Card>
                     </div>
@@ -140,7 +145,7 @@ export default function GL01s() {
 
 
                 <div className="text-center text-gray-600">
-                    <p>Learn more about our products at www.honeywell.com</p>
+                    <p>Learn more about our products at www.G-Log.com</p>
                 </div>
             </div>
         </div>

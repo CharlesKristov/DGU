@@ -1,4 +1,4 @@
-import {  Package, Shield, BarChart, Sun, Download } from 'lucide-react'
+import { Download } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
@@ -15,18 +15,18 @@ export default function BBA231s() {
                 </header>
 
                 <div className="grid md:grid-cols-2 gap-8 items-start mb-12">
-                    <div>
+                    <div className='flex justify-center'>
                         <Image
                             src={BBA231}
                             alt="BBA231"
-                            className="rounded-lg w-3/5 h-auto aspect-square"
+                            className="rounded-lg w-3/5 h-auto w-auto"
                         />
                     </div>
                     <div className="space-y-6">
                         <h2 className="text-2xl font-semibold text-black">What is BBA231?</h2>
                         <p className="text-gray-600">
-                            Honeywell is a global leader in technology and manufacturing, offering solutions in areas such as automation, energy efficiency, safety, and security. Their innovative technologies empower businesses across industries to enhance operational efficiency and sustainability.
-                        </p>
+                            The BBA231 bench scale is a robust and cost-effective solution for versatile use in dry and dustcontaminated industrial
+                        environments.                        </p>
                         <Link href="/MT/BBA231_150kg.pdf" rel="noopener noreferrer" target="_blank">
                             <button className="brochure bg-primary-blue text-white px-4 py-2 rounded-lg mt-3">
                                 <span className='flex items-center'>
@@ -39,10 +39,10 @@ export default function BBA231s() {
                 </div>
 
                 <Tabs defaultValue="features" className="mb-12">
-                    <TabsList className="grid w-full grid-cols-3 bg-primary-blue text-white">
+                    <TabsList className="grid w-full grid-cols-1 bg-primary-blue text-white">
                         <TabsTrigger value="features" className="max-md:text-xs">Features</TabsTrigger>
-                        <TabsTrigger value="industries" className="max-md:text-xs">Industries Served</TabsTrigger>
-                        <TabsTrigger value="benefits" className="max-md:text-xs">Benefits</TabsTrigger>
+                        {/* <TabsTrigger value="industries" className="max-md:text-xs">Industries Served</TabsTrigger>
+                        <TabsTrigger value="benefits" className="max-md:text-xs">Benefits</TabsTrigger> */}
                     </TabsList>
                     <TabsContent value="features">
                         <Card>
@@ -50,21 +50,28 @@ export default function BBA231s() {
                                 <CardTitle>Features</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-2">
-                                <p>• Advanced automation and control systems for industrial applications</p>
-                                <p>• Cutting-edge cybersecurity solutions to protect critical infrastructure</p>
-                                <p>• Energy-efficient products and systems to drive sustainability</p>
-                                <p>• Real-time data analytics to optimize performance and safety</p>
-                                <p>• Smart building technologies for efficient facility management</p>
+                                <p className='text-black-600 font-semibold mb-0'>Multi-Functional</p>
+                                <p className="text-gray-600">
+                                    Fast, economical and multi-functional for any straight weighing, counting, checkweighing or classifying application in a dry environment.
+                                </p>
+                                <p className='text-black-600 font-semibold'>Visible and Fast</p>
+                                <p className="text-gray-600">
+                                    The terminal, with its large LCD display, is easy to operate and features a built-in RS232 interface to communicate with a printer or PC.
+                                </p>
+                                <p className='text-black-600 font-semibold'>Lasting Battery Power   </p>
+                                <p className="text-gray-600">
+                                    The scale is powered by 240 VAC or 6 AA dry batteries and is unapproved by delivery. The stand is not included with scale.
+                                </p>
                             </CardContent>
                         </Card>
                     </TabsContent>
-                    <TabsContent value="industries">
+                    {/* <TabsContent value="industries">
                         <Card>
                             <CardHeader>
                                 <CardTitle>Industries Served</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-2">
-                                <p>• Aerospace and Defense</p>
+                                <p className='mb-0'>• Aerospace and Defense</p>
                                 <p>• Oil and Gas</p>
                                 <p>• Manufacturing and Industrial</p>
                                 <p>• Healthcare and Pharmaceuticals</p>
@@ -78,18 +85,18 @@ export default function BBA231s() {
                                 <CardTitle>Benefits</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-2">
-                                <p>• Enhanced operational efficiency through automation</p>
+                                <p className='mb-0'>• Enhanced operational efficiency through automation</p>
                                 <p>• Improved sustainability with energy-efficient solutions</p>
                                 <p>• Increased safety and security with advanced monitoring systems</p>
                                 <p>• Real-time visibility and control over critical infrastructure</p>
                                 <p>• Cost reduction and optimized resource allocation</p>
                             </CardContent>
                         </Card>
-                    </TabsContent>
+                    </TabsContent> */}
                 </Tabs>
 
-                <section className="mb-12">
-                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">Why Choose Honeywell?</h2>
+                {/* <section className="mb-12">
+                    <h2 className="text-2xl font-semibold text-gray-800 mb-4">Why Choose bCom S?</h2>
                     <div className="grid md:grid-cols-2 gap-6">
                         <Card>
                             <CardHeader>
@@ -136,11 +143,11 @@ export default function BBA231s() {
                             </CardContent>
                         </Card>
                     </div>
-                </section>
+                </section> */}
 
 
                 <div className="text-center text-gray-600">
-                    <p>Learn more about our products at www.honeywell.com</p>
+                    <p>Learn more about our products at www.mt.com</p>
                 </div>
             </div>
         </div>

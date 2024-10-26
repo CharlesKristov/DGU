@@ -14,11 +14,11 @@ export default function hh660s() {
                 </header>
 
                 <div className="grid md:grid-cols-2 gap-8 items-start mb-12">
-                    <div>
+                    <div className = "flex justify-center">
                         <Image
                             src={HH660}
                             alt="HH660"
-                            className="rounded-lg w-3/5 h-auto aspect-square"
+                            className="rounded-lg w-3/5 h-auto w-auto"
                         />
                     </div>
                     <div className="space-y-6">

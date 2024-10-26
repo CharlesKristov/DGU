@@ -14,11 +14,11 @@ export default function Voyagers() {
                 </header>
 
                 <div className="grid md:grid-cols-2 gap-8 items-start mb-12">
-                    <div>
+                    <div className = "flex justify-center">
                         <Image
                             src={Voyager}
                             alt="Voyager"
-                            className="rounded-lg w-3/5 h-auto aspect-square"
+                            className="rounded-lg w-3/5 h-auto w-auto"
                         />
                     </div>
                     <div className="space-y-6">

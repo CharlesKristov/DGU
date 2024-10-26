@@ -34,7 +34,7 @@ export default function Mettler() {
                     Mettler Toledo
                 </h1>
                 <div className="mt-1.5 text-base leading-6 text-secondary-black text-center">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Mettler Toledo is a multinational leader in precision instruments and services. 
                 </div>
 
                 <div className="mt-10 w-[1200px] max-w-full mx-auto grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
