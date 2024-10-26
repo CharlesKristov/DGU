@@ -39,9 +39,9 @@ export default function AdminPage() {
     router.push('/admin/manage-activities'); // Navigate to manage activities page
   };
 
-  const handleManageProducts = () => {
-    router.push('/admin/manage-products'); // Navigate to manage products page
-  };
+  // const handleManageProducts = () => {
+  //   router.push('/admin/manage-products'); // Navigate to manage products page
+  // };
 
   // Add more handlers as needed for other items
 
@@ -56,13 +56,15 @@ export default function AdminPage() {
           <Button onClick={handleManageActivities} className="mb-2 w-1/4">
             Manage Activities
           </Button>
-          <Button onClick={handleManageProducts} className="mb-2 w-1/4">
+          
+          {/* <Button onClick={handleManageProducts} className="mb-2 w-1/4">
             Manage Products
           </Button>
-          {/* Add more buttons for additional manage items here */}
           <Button onClick={() => alert('Manage Other Item')} className="mb-2 w-1/4">
             Manage Other Item
           </Button>
+           */}
+
         </div>
       </div>
     </div>
