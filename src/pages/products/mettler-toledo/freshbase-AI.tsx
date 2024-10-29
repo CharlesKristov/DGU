@@ -137,11 +137,6 @@ export default function FRESHBASEAI() {
                         </Card>
                     </div>
                 </section> */}
-
-
-                <div className="text-center text-gray-600">
-                    <p>Learn more about our products at www.mt.com</p>
-                </div>
             </div>
         </div>
     )

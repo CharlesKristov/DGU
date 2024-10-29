@@ -44,11 +44,11 @@ export default function ContactUs() {
     return (
         <>
             <div className="flex flex-col items-center m-3">
-                <h1 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                <h1 className="text-4xl font-bold leading-10 text-primary-blue text-center">
                     Contact Us
                 </h1>
             </div>
-            <div className="w-[900px] max-w-full mx-auto my-auto">
+            <div className="w-[75%] max-md:w-full mx-auto my-auto">
                 <div className="bg-white shadow rounded-lg p-6 mb-10 max-md:mx-3">
                     <div className="grid md:grid-cols-2 gap-8">
                         <div>
@@ -92,7 +92,7 @@ export default function ContactUs() {
                                     value={formData.name}
                                     onChange={handleChange}
                                     placeholder="Your Name"
-                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary-blue focus:outline-none"
                                 />
                                 <input
                                     type="email"
@@ -100,7 +100,7 @@ export default function ContactUs() {
                                     value={formData.email}
                                     onChange={handleChange}
                                     placeholder="Your Email"
-                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary-blue focus:outline-none"
                                 />
                                 <input
                                     type="text"
@@ -108,7 +108,7 @@ export default function ContactUs() {
                                     value={formData.subject}
                                     onChange={handleChange}
                                     placeholder="Subject"
-                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary-blue focus:outline-none"
                                 />
                                 <textarea
                                     name="message"
@@ -116,11 +116,11 @@ export default function ContactUs() {
                                     onChange={handleChange}
                                     placeholder="Your Message"
                                     rows={4}
-                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-primary-blue focus:outline-none"
                                 />
                                 <button
                                     type="submit"
-                                    className="w-full bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors duration-200"
+                                    className="w-full bg-primary-blue text-white px-6 py-2 rounded hover:bg-gray-900 transition-colors duration-200"
                                 >
                                     Send Message
                                 </button>

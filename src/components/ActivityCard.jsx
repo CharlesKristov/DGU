@@ -7,7 +7,7 @@ const ActivityCard = ({ brandName, storeName, imageSrc, href }) => {
 
     return (
         <div className="flex flex-col w-full h-full">
-            <div className="relative w-full min-h-[355px] rounded-xl shadow-lg overflow-hidden">
+            <div className="relative w-full min-h-[425px] rounded-xl shadow-lg overflow-hidden">
                 <Image
                     loading="lazy"
                     src={imageSrc}

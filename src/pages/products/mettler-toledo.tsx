@@ -30,14 +30,14 @@ export default function Mettler() {
     return (
         <>
             <div className="flex flex-col items-center m-3">
-                <h1 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                <h1 className="text-4xl font-bold leading-10 text-primary-blue text-center">
                     Mettler Toledo
                 </h1>
                 <div className="mt-1.5 text-base leading-6 text-secondary-black text-center">
                     Mettler Toledo is a multinational leader in precision instruments and services. 
                 </div>
 
-                <div className="mt-10 w-[1200px] max-w-full mx-auto grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-10 w-[75%] max-md:w-full mx-auto grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {productMettler.map((image, index) => (
                         <ProductsCard
                             key={index}

@@ -6,7 +6,9 @@ import { Card, CardContent, CardDescription } from "@/components/ui/card";
 import {
     Carousel,
     CarouselContent,
-    CarouselItem
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
 } from "@/components/ui/carousel"
 import {
     Accordion,
@@ -219,7 +221,7 @@ export default function Home() {
         <>
             <div className="flex flex-col items-center m-3">
                 {/* Carousel Section */}
-                <Carousel plugins={[plugin.current]} className="w-3/5 aspect-video max-md:w-full">
+                <Carousel plugins={[plugin.current]} className="w-[75%] aspect-video max-md:w-full">
                     <CarouselContent>
                         {carouselData.map((item) => (
                             <CarouselItem key={item.index}>
@@ -242,7 +244,7 @@ export default function Home() {
 
                 {/* Activities Section */}
                 <div className="mt-20">
-                    <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                    <h2 className="text-4xl font-bold leading-10 text-primary-blue text-center">
                         Our Activities
                     </h2>
                 </div>
@@ -250,11 +252,11 @@ export default function Home() {
                     We are actively providing goods all over Indonesia.
                 </div>
                 <Link href={"/activities"} className="text-decoration-none">
-                    <button className="buttons px-3.5 py-1.5 mt-3 text-xs font-semibold tracking-wider leading-5 text-center uppercase rounded-lg bg-zinc-100 text-primary-blue hover:text-white transition-all">
+                    <button className="buttons px-3.5 py-1.5 mt-3 text-2xs font-semibold tracking-wider leading-5 text-center uppercase rounded-lg bg-zinc-100 text-primary-blue hover:text-white transition-all">
                         See All
                     </button>
                 </Link> 
-                <section className="mx-auto my-12 max-w-full w-[900px] max-md:mx-5">
+                <section className="mx-auto my-12 w-[75%] max-md:mx-5 max-md:w-full">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mx-auto justify-items-center place-content-center">
                         {activityData.map((activity, index) => (
                         <ActivityCard
@@ -270,12 +272,12 @@ export default function Home() {
 
                 {/* Video Youtube */}
                 <div className="mt-10">
-                    <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                    <h2 className="text-4xl font-bold leading-10 text-primary-blue text-center">
                         Mettler Toledo Freshbase With AI
                     </h2>
                 </div>
                 <div className="flex justify-center w-full">
-                    <div className="relative w-3/5 h-auto aspect-video max-md:w-full">
+                    <div className="relative w-[75%] h-auto aspect-video max-md:w-full">
                         <iframe
                         className="mt-10 absolute top-0 left-0 w-full h-full max-md:mx-0"
                         src="https://www.youtube.com/embed/oCKHQvCqFSw"
@@ -288,14 +290,14 @@ export default function Home() {
 
                 {/* Products */}
                 <div id="products" className="mt-24">
-                    <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                    <h2 className="text-4xl font-bold leading-10 text-primary-blue text-center">
                         Our Products
                     </h2>
                 </div>
                 <div className="mt-1.5 text-base leading-6 text-secondary-black text-center">
                     We are the official authorized Dealer
                 </div>
-                <section className="max-w-full w-[1000px] max-md:mt-10">
+                <section className="max-w-full w-[75%] max-md:mt-10 max-md:w-full">
                     <div className="mt-10 flex gap-5 max-md:flex-col max-md:mt-0">
                         {productData1.map((image, index) => (
                         <div key={index} className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
@@ -324,11 +326,11 @@ export default function Home() {
 
                 {/* Customers */}
                 <div className="mt-24">
-                    <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                    <h2 className="text-4xl font-bold leading-10 text-primary-blue text-center">
                         Our Customers
                     </h2>
                 </div>
-                <section className="grid grid-cols-4 md:grid-cols-6 gap-4 mt-12">
+                <section className="grid grid-cols-4 md:grid-cols-6 gap-4 mt-12 w-[75%] max-md:w-full">
                     {allImageData.map((image, index) => (
                         <CustomerImage key={index} src={image.src} alt={image.alt} />
                     ))}
@@ -336,11 +338,11 @@ export default function Home() {
 
                 {/* News */}
                 <div className="mt-24">
-                    <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                    <h2 className="text-4xl font-bold leading-10 text-primary-blue text-center">
                         News
                     </h2>
                 </div>
-                <Carousel className="w-3/4 mt-12 max-md:max-w-full" opts={OPTIONS}>
+                <Carousel className="w-[75%] mt-12 max-md:w-full" opts={OPTIONS}>
                     <CarouselContent>
                         {News.map((news, index) => (
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
@@ -354,7 +356,7 @@ export default function Home() {
                                                 objectFit="cover"
                                             />
                                         </CardContent>
-                                        <CardDescription className="p-2 text-center font-medium text-sm md:text-lg lg:text-xl">
+                                        <CardDescription className="p-2 text-center font-medium text-lg lg:text-xl">
                                             {news.alt}
                                         </CardDescription>
                                     </Card>
@@ -362,6 +364,8 @@ export default function Home() {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
+                    <CarouselPrevious className="max-md:hidden" />
+                    <CarouselNext className="max-md:hidden" />
                 </Carousel>
             </div>
 
@@ -375,7 +379,7 @@ export default function Home() {
                                     <h2 className="pr-36 text-4xl font-semibold leading-[49.5px] text-stone-950 max-md:pr-5 max-md:text-2xl">
                                         Frequently Asked Questions
                                     </h2>
-                                    <div className="flex items-center self-start mt-2 text-base font-light leading-6">
+                                    <div className="flex items-center self-start mt-2 text-lg font-light leading-6">
                                         <p className="self-stretch my-auto text-stone-500">
                                             Haven&apos;t found what you&apos;re looking for?
                                             <Link href={"/contact-us"} className="self-stretch my-auto text-sky-600 ml-1">
