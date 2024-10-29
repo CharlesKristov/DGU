@@ -166,7 +166,7 @@ export default function ServiceSupport() {
 
     return (
         <div className="flex flex-col items-center m-3">
-            <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+            <h2 className="text-4xl font-bold leading-10 text-primary-blue text-center">
                 Services & Support
             </h2>
             <div className="mt-1.5 text-base leading-6 text-black text-center mb-4">

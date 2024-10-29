@@ -28,11 +28,11 @@ export default function Activities() {
 
     return (
         <div className="min-h-screen bg-gradient-to-b py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
+            <div className="mx-auto">
                 
                 {/* Activities Section */}
                 <div className="mt-2">
-                    <h2 className="text-3xl font-bold leading-10 text-primary-blue text-center">
+                    <h2 className="text-4xl font-bold leading-10 text-primary-blue text-center">
                         Our Activities
                     </h2>
                 </div>
@@ -42,7 +42,7 @@ export default function Activities() {
                 </div>
                 
 
-                <section className="mx-auto my-12 max-w-full w-[900px] max-md:mx-5">
+                <section className="mx-auto my-12 w-[75%] max-md:mx-5 max-md:w-full">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mx-auto justify-items-center place-content-center">
                         {activityData.map((activity, index) => (
                         <ActivityCard

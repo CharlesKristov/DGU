@@ -142,11 +142,6 @@ export default function GL0G8s() {
                         </Card>
                     </div>
                 </section>
-
-
-                <div className="text-center text-gray-600">
-                    <p>Learn more about our products at www.G-Log.com</p>
-                </div>
             </div>
         </div>
     )
