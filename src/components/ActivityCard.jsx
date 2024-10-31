@@ -3,8 +3,6 @@ import Link from "next/link";
 
 
 const ActivityCard = ({ brandName, storeName, imageSrc, href }) => {
-
-
     return (
         <div className="flex flex-col w-full h-full">
             <div className="relative w-full min-h-[425px] rounded-xl shadow-lg overflow-hidden">
@@ -26,7 +24,7 @@ const ActivityCard = ({ brandName, storeName, imageSrc, href }) => {
                             {storeName}
                         </h2>
                     </div>
-                    {href != "nolink" ? ( // Conditional rendering based on href
+                    {href != "nolink" ? (
                         <Link href={href} className="no-underline text-black self-start px-3.5 py-2 text-xs leading-5 text-center bg-white rounded-lg hover:bg-primary-blue hover:text-white transition-all">
                                 See More
                         </Link>

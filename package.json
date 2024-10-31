@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/modal": "^2.0.41",
+    "@nextui-org/system": "^2.2.6",
+    "@nextui-org/theme": "^2.2.11",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
@@ -29,6 +32,7 @@
     "flowbite": "^2.5.2",
     "flowbite-react": "^0.10.2",
     "formidable": "^3.5.2",
+    "framer-motion": "^11.11.10",
     "jsvectormap": "^1.6.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.451.0",
