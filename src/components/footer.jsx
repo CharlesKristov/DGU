@@ -15,7 +15,7 @@ export default function Footer() {
                     <div className="flex w-full flex-col md:flex-row justify-between mb-6">
                         <div className="flex md:w-1/2 mb-2">
                             <p className="font-small text-justify">
-                            PT Globalindo Utama is an authorized dealer of Mettler Toledo, Honeywell, Eutron, and G-LOG, providing top-quality weighing systems, automation, and industrial equipment for various industries across Indonesia.
+                            PT Duta Globalindo Utama is an authorized dealer of Mettler Toledo, Honeywell, Eutron, and G-LOG, providing top-quality weighing systems, automation, and industrial equipment for various industries across Indonesia.
                             </p>
                         </div>
                         <div className="flex flex-col items-start md:items-end">
@@ -28,7 +28,7 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className="font-small pb-9">
-                        <p>Copyright © 2024 CC-BA</p>
+                        <p>Copyright © 2024 PT. Duta Globalindo Utama</p>
                     </div>
                     
                 </div>

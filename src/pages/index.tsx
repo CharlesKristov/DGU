@@ -65,6 +65,14 @@ import Image from 'next/image';
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
+import News1 from "../assets/Presentation-Mettler-Toledo-FreshBase-Plus-AI-with-Lion-Super-Indo-team-scaled.jpg";
+import News2 from "../assets/Conduct-coordination-with-Lotte-team-for-information-technologi-in-the-store-scaled.jpg";
+import News3 from "../assets/Training-New-Product-FreshBase-Plus-with-Artificial-intelligence-2-scaled.jpg";
+import News4 from "../assets/Colaboration-with-Mettler-Toledo-China-Malaysia-3.jpg";
+import News5 from "../assets/Colaboration-with-Mettler-Toledo-China-Malaysia-1.jpg";
+import News6 from "../assets/The-first-priority-is-to-minimize-equipment-downtime-in-the-shop-scaled.jpg";
+import News7 from "../assets/Training-in-Lotte-Bintaro-scaled.jpg";
+
 
 export default function Home() {
     const carouselData = [
@@ -179,31 +187,31 @@ export default function Home() {
 
     const News = [
         {
-            src: "https://dgu.co.id/wp-content/uploads/2024/04/Presentation-Mettler-Toledo-FreshBase-Plus-AI-with-Lion-Super-Indo-team-scaled.jpg",
+            src: News1,
             alt: "Presentation Mettler Toledo FreshBase Plus AI with Lion Super Indo team",
         },
         {
-            src: "https://dgu.co.id/wp-content/uploads/2024/04/Conduct-coordination-with-Lotte-team-for-information-technologi-in-the-store-scaled.jpg",
+            src: News2,
             alt: "Conduct coordination with Lotte team for information technologi in the store",
         },
         {
-            src: "https://dgu.co.id/wp-content/uploads/2024/04/Training-New-Product-FreshBase-Plus-with-Artificial-intelligence-2-scaled.jpg",
+            src: News3,
             alt: "Training New Product FreshBase Plus With Artificial Intelligence",
         },
         {
-            src: "https://dgu.co.id/wp-content/uploads/2024/04/Colaboration-with-Mettler-Toledo-China-Malaysia-3.jpg",
+            src: News4,
             alt: "Colaboration with Mettler Toledo China & Malaysia 3",
         },
         {
-            src: "https://dgu.co.id/wp-content/uploads/2024/04/Colaboration-with-Mettler-Toledo-China-Malaysia-1.jpg",
+            src: News5,
             alt: "Colaboration with Mettler Toledo China & Malaysia 1",
         },
         {
-            src: "https://dgu.co.id/wp-content/uploads/2024/04/The-first-priority-is-to-minimize-equipment-downtime-in-the-shop-scaled.jpg",
+            src: News6,
             alt: "The first priority is to minimize equipment downtime in the shop",
         },
         {
-            src: "https://dgu.co.id/wp-content/uploads/2024/04/Training-in-Lotte-Bintaro--scaled.jpg",
+            src: News7,
             alt: "Training in Lotte Bintaro",
         }
     ];
