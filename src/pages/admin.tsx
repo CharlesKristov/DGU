@@ -24,7 +24,7 @@ export default function AdminPage() {
 
   if (!session) {
     return (
-      <div className='flex flex-col items-center m-3 h-96'>
+      <div className='flex flex-col items-center m-3 min-h-screen justify-center text-center'>
         <h2 className='mb-5'>Welcome to Admin Page</h2>
         <h3>Please login using your registered Google account.</h3>
         <h4>If you haven&apos;t registered, please contact our IT support.</h4>
@@ -37,6 +37,10 @@ export default function AdminPage() {
 
   const handleManageActivities = () => {
     router.push('/admin/manage-activities'); // Navigate to manage activities page
+  };
+
+  const handleManageNews = () => {
+    router.push('/admin/manage-news'); // Navigate to manage news page
   };
 
   // const handleManageProducts = () => {
@@ -55,6 +59,9 @@ export default function AdminPage() {
         <div className="flex flex-col items-center mt-2">
           <Button onClick={handleManageActivities} className="mb-2 w-1/4">
             Manage Activities
+          </Button>
+          <Button onClick={handleManageNews} className="mb-2 w-1/4">
+            Manage News
           </Button>
           
           {/* <Button onClick={handleManageProducts} className="mb-2 w-1/4">
