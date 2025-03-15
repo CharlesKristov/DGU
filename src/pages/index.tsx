@@ -102,6 +102,31 @@ export default function Home() {
         fetchActivities();
     }, []); 
 
+    type NewsItem = {
+        id: string;
+        photo_url: string;
+        news_name: string;
+      };
+    const [news, setNews] = useState<NewsItem[]>([]);
+
+    useEffect(() => {
+        async function fetchNews() {
+          try {
+            const response = await fetch("/api/news");
+            if (!response.ok) {
+              throw new Error("Failed to fetch news");
+            }
+            const data = await response.json();
+            setNews(data); // Assuming API returns an array of news objects
+          } catch (error) {
+            console.error("Error fetching news:", error);
+          }
+        }
+    
+        fetchNews();
+      }, []);
+    
+
     const productData1 = [
         { imageSrc: Product1.src, altText: "Mettler Toledo logo", title: "Mettler Toledo", linkURL: "/products/mettler-toledo" },
         { imageSrc: Product2.src, altText: "Honeywell logo", title: "Honeywell", linkURL: "/products/honeywell" }
@@ -185,6 +210,8 @@ export default function Home() {
         }
     ];
 
+    
+
     const News = [
         {
             src: News1,
@@ -215,6 +242,8 @@ export default function Home() {
             alt: "Training in Lotte Bintaro",
         }
     ];
+
+    console.log(News);
 
     const imageDataArray = [imageData1, imageData2, imageData3, imageData4, imageData5];
     const allImageData = imageDataArray.flat();
@@ -352,20 +381,20 @@ export default function Home() {
                 </div>
                 <Carousel className="w-[75%] mt-12 max-md:w-full" opts={OPTIONS}>
                     <CarouselContent>
-                        {News.map((news, index) => (
+                        {news.map((newsItem, index) => (
                             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                                 <div className="p-1">
                                     <Card className="h-full">
                                         <CardContent className="relative flex aspect-[16/9] items-center justify-center p-0">
                                         <Image
-                                                src={news.src} 
-                                                alt={news.alt} 
+                                                src={newsItem.photo_url} 
+                                                alt={newsItem.news_name} 
                                                 layout="fill" 
                                                 objectFit="cover"
                                             />
                                         </CardContent>
                                         <CardDescription className="p-2 text-center font-medium text-lg lg:text-xl">
-                                            {news.alt}
+                                            {newsItem.news_name}
                                         </CardDescription>
                                     </Card>
                                 </div>

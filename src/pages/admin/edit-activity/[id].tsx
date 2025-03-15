@@ -301,7 +301,8 @@ export default function ActivityDetail() {
                                                 value={photo.photo_url}
                                                 onChange={(e) => handlePhotoUrlChange(index, e.target.value)}
                                                 placeholder="Enter image URL"
-                                                className="border p-1 w-full ml-2"
+                                                className="border ml-2 hidden"
+                                                disabled
                                             />
                                         </div>
                                     </td>
