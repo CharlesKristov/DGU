@@ -3,14 +3,12 @@ import formidable from 'formidable';
 import { put } from '@vercel/blob';
 import { readFileSync } from 'fs'; // Import fs to read files
 
-// Disable body parsing to allow formidable to handle file uploads
 export const config = {
     api: {
         bodyParser: false,
     },
 };
 
-// Allowed image MIME types
 const allowedImageTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 const maxFileSize = 10 * 1024 * 1024; // Maximum file size (10 MB)
 
@@ -65,7 +63,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 }
 
-// Function to upload file to Vercel Blob
 async function uploadToVercelBlob(file: formidable.File) {
     const fileBuffer = readFileSync(file.filepath); // Read the file as a buffer
     const blob = await put(`photos/${file.originalFilename}`, fileBuffer, {
