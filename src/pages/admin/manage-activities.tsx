@@ -96,8 +96,8 @@ export default function AdminPage() {
         <table className="min-w-full border border-gray-300">
           <thead>
             <tr className="bg-gray-200">
-              <th className="border px-4 py-2 text-center w-1/4">Brand Name</th>
               <th className="border px-4 py-2 text-center w-1/4">Store Name</th>
+              <th className="border px-4 py-2 text-center w-1/4">Brand Name</th>
               <th className="border px-4 py-2 text-center w-1/4">Activity Name</th>
               <th className="border px-4 py-2 text-center w-1/4">Actions</th>
             </tr>
@@ -106,8 +106,8 @@ export default function AdminPage() {
             {activities.length > 0 ? (
               activities.map((activity, index) => (
                 <tr key={index} className="hover:bg-gray-100">
-                  <td className="border px-4 py-2">{activity.brand_name}</td>
                   <td className="border px-4 py-2">{activity.store_name}</td>
+                  <td className="border px-4 py-2">{activity.brand_name}</td>
                   <td className="border px-4 py-2">{activity.activity_description}</td>
                   <td className="border px-4 py-2 text-center">
                     <Button onClick={() => handleEditActivity(activity.activity_id)} className="text-center mr-2">Edit</Button>
